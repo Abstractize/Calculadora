@@ -596,30 +596,23 @@ state 26
     (8) expression -> expression . FACTORIAL
     (9) expression -> expression . PI
 
-  ! shift/reduce conflict for MULTIPLY resolved as shift
-  ! shift/reduce conflict for DIVIDE resolved as shift
-  ! shift/reduce conflict for PLUS resolved as shift
-  ! shift/reduce conflict for MINUS resolved as shift
-  ! shift/reduce conflict for EXP resolved as shift
-  ! shift/reduce conflict for FACTORIAL resolved as shift
-  ! shift/reduce conflict for PI resolved as shift
+    MULTIPLY        reduce using rule 3 (expression -> expression MULTIPLY expression .)
+    DIVIDE          reduce using rule 3 (expression -> expression MULTIPLY expression .)
+    PLUS            reduce using rule 3 (expression -> expression MULTIPLY expression .)
+    MINUS           reduce using rule 3 (expression -> expression MULTIPLY expression .)
+    EXP             reduce using rule 3 (expression -> expression MULTIPLY expression .)
+    FACTORIAL       reduce using rule 3 (expression -> expression MULTIPLY expression .)
+    PI              reduce using rule 3 (expression -> expression MULTIPLY expression .)
     $end            reduce using rule 3 (expression -> expression MULTIPLY expression .)
     CLOSE           reduce using rule 3 (expression -> expression MULTIPLY expression .)
-    MULTIPLY        shift and go to state 12
-    DIVIDE          shift and go to state 13
-    PLUS            shift and go to state 14
-    MINUS           shift and go to state 15
-    EXP             shift and go to state 16
-    FACTORIAL       shift and go to state 17
-    PI              shift and go to state 18
 
-  ! MULTIPLY        [ reduce using rule 3 (expression -> expression MULTIPLY expression .) ]
-  ! DIVIDE          [ reduce using rule 3 (expression -> expression MULTIPLY expression .) ]
-  ! PLUS            [ reduce using rule 3 (expression -> expression MULTIPLY expression .) ]
-  ! MINUS           [ reduce using rule 3 (expression -> expression MULTIPLY expression .) ]
-  ! EXP             [ reduce using rule 3 (expression -> expression MULTIPLY expression .) ]
-  ! FACTORIAL       [ reduce using rule 3 (expression -> expression MULTIPLY expression .) ]
-  ! PI              [ reduce using rule 3 (expression -> expression MULTIPLY expression .) ]
+  ! MULTIPLY        [ shift and go to state 12 ]
+  ! DIVIDE          [ shift and go to state 13 ]
+  ! PLUS            [ shift and go to state 14 ]
+  ! MINUS           [ shift and go to state 15 ]
+  ! EXP             [ shift and go to state 16 ]
+  ! FACTORIAL       [ shift and go to state 17 ]
+  ! PI              [ shift and go to state 18 ]
 
 
 state 27
@@ -633,30 +626,23 @@ state 27
     (8) expression -> expression . FACTORIAL
     (9) expression -> expression . PI
 
-  ! shift/reduce conflict for MULTIPLY resolved as shift
-  ! shift/reduce conflict for DIVIDE resolved as shift
-  ! shift/reduce conflict for PLUS resolved as shift
-  ! shift/reduce conflict for MINUS resolved as shift
-  ! shift/reduce conflict for EXP resolved as shift
-  ! shift/reduce conflict for FACTORIAL resolved as shift
-  ! shift/reduce conflict for PI resolved as shift
+    MULTIPLY        reduce using rule 4 (expression -> expression DIVIDE expression .)
+    DIVIDE          reduce using rule 4 (expression -> expression DIVIDE expression .)
+    PLUS            reduce using rule 4 (expression -> expression DIVIDE expression .)
+    MINUS           reduce using rule 4 (expression -> expression DIVIDE expression .)
+    EXP             reduce using rule 4 (expression -> expression DIVIDE expression .)
+    FACTORIAL       reduce using rule 4 (expression -> expression DIVIDE expression .)
+    PI              reduce using rule 4 (expression -> expression DIVIDE expression .)
     $end            reduce using rule 4 (expression -> expression DIVIDE expression .)
     CLOSE           reduce using rule 4 (expression -> expression DIVIDE expression .)
-    MULTIPLY        shift and go to state 12
-    DIVIDE          shift and go to state 13
-    PLUS            shift and go to state 14
-    MINUS           shift and go to state 15
-    EXP             shift and go to state 16
-    FACTORIAL       shift and go to state 17
-    PI              shift and go to state 18
 
-  ! MULTIPLY        [ reduce using rule 4 (expression -> expression DIVIDE expression .) ]
-  ! DIVIDE          [ reduce using rule 4 (expression -> expression DIVIDE expression .) ]
-  ! PLUS            [ reduce using rule 4 (expression -> expression DIVIDE expression .) ]
-  ! MINUS           [ reduce using rule 4 (expression -> expression DIVIDE expression .) ]
-  ! EXP             [ reduce using rule 4 (expression -> expression DIVIDE expression .) ]
-  ! FACTORIAL       [ reduce using rule 4 (expression -> expression DIVIDE expression .) ]
-  ! PI              [ reduce using rule 4 (expression -> expression DIVIDE expression .) ]
+  ! MULTIPLY        [ shift and go to state 12 ]
+  ! DIVIDE          [ shift and go to state 13 ]
+  ! PLUS            [ shift and go to state 14 ]
+  ! MINUS           [ shift and go to state 15 ]
+  ! EXP             [ shift and go to state 16 ]
+  ! FACTORIAL       [ shift and go to state 17 ]
+  ! PI              [ shift and go to state 18 ]
 
 
 state 28
@@ -670,30 +656,23 @@ state 28
     (8) expression -> expression . FACTORIAL
     (9) expression -> expression . PI
 
-  ! shift/reduce conflict for MULTIPLY resolved as shift
-  ! shift/reduce conflict for DIVIDE resolved as shift
-  ! shift/reduce conflict for PLUS resolved as shift
-  ! shift/reduce conflict for MINUS resolved as shift
-  ! shift/reduce conflict for EXP resolved as shift
-  ! shift/reduce conflict for FACTORIAL resolved as shift
-  ! shift/reduce conflict for PI resolved as shift
+    PLUS            reduce using rule 5 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 5 (expression -> expression PLUS expression .)
+    EXP             reduce using rule 5 (expression -> expression PLUS expression .)
+    FACTORIAL       reduce using rule 5 (expression -> expression PLUS expression .)
+    PI              reduce using rule 5 (expression -> expression PLUS expression .)
     $end            reduce using rule 5 (expression -> expression PLUS expression .)
     CLOSE           reduce using rule 5 (expression -> expression PLUS expression .)
     MULTIPLY        shift and go to state 12
     DIVIDE          shift and go to state 13
-    PLUS            shift and go to state 14
-    MINUS           shift and go to state 15
-    EXP             shift and go to state 16
-    FACTORIAL       shift and go to state 17
-    PI              shift and go to state 18
 
   ! MULTIPLY        [ reduce using rule 5 (expression -> expression PLUS expression .) ]
   ! DIVIDE          [ reduce using rule 5 (expression -> expression PLUS expression .) ]
-  ! PLUS            [ reduce using rule 5 (expression -> expression PLUS expression .) ]
-  ! MINUS           [ reduce using rule 5 (expression -> expression PLUS expression .) ]
-  ! EXP             [ reduce using rule 5 (expression -> expression PLUS expression .) ]
-  ! FACTORIAL       [ reduce using rule 5 (expression -> expression PLUS expression .) ]
-  ! PI              [ reduce using rule 5 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ shift and go to state 14 ]
+  ! MINUS           [ shift and go to state 15 ]
+  ! EXP             [ shift and go to state 16 ]
+  ! FACTORIAL       [ shift and go to state 17 ]
+  ! PI              [ shift and go to state 18 ]
 
 
 state 29
@@ -707,30 +686,23 @@ state 29
     (8) expression -> expression . FACTORIAL
     (9) expression -> expression . PI
 
-  ! shift/reduce conflict for MULTIPLY resolved as shift
-  ! shift/reduce conflict for DIVIDE resolved as shift
-  ! shift/reduce conflict for PLUS resolved as shift
-  ! shift/reduce conflict for MINUS resolved as shift
-  ! shift/reduce conflict for EXP resolved as shift
-  ! shift/reduce conflict for FACTORIAL resolved as shift
-  ! shift/reduce conflict for PI resolved as shift
+    PLUS            reduce using rule 6 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 6 (expression -> expression MINUS expression .)
+    EXP             reduce using rule 6 (expression -> expression MINUS expression .)
+    FACTORIAL       reduce using rule 6 (expression -> expression MINUS expression .)
+    PI              reduce using rule 6 (expression -> expression MINUS expression .)
     $end            reduce using rule 6 (expression -> expression MINUS expression .)
     CLOSE           reduce using rule 6 (expression -> expression MINUS expression .)
     MULTIPLY        shift and go to state 12
     DIVIDE          shift and go to state 13
-    PLUS            shift and go to state 14
-    MINUS           shift and go to state 15
-    EXP             shift and go to state 16
-    FACTORIAL       shift and go to state 17
-    PI              shift and go to state 18
 
   ! MULTIPLY        [ reduce using rule 6 (expression -> expression MINUS expression .) ]
   ! DIVIDE          [ reduce using rule 6 (expression -> expression MINUS expression .) ]
-  ! PLUS            [ reduce using rule 6 (expression -> expression MINUS expression .) ]
-  ! MINUS           [ reduce using rule 6 (expression -> expression MINUS expression .) ]
-  ! EXP             [ reduce using rule 6 (expression -> expression MINUS expression .) ]
-  ! FACTORIAL       [ reduce using rule 6 (expression -> expression MINUS expression .) ]
-  ! PI              [ reduce using rule 6 (expression -> expression MINUS expression .) ]
+  ! PLUS            [ shift and go to state 14 ]
+  ! MINUS           [ shift and go to state 15 ]
+  ! EXP             [ shift and go to state 16 ]
+  ! FACTORIAL       [ shift and go to state 17 ]
+  ! PI              [ shift and go to state 18 ]
 
 
 state 30
@@ -1055,34 +1027,6 @@ state 45
 WARNING: 
 WARNING: Conflicts:
 WARNING: 
-WARNING: shift/reduce conflict for MULTIPLY in state 26 resolved as shift
-WARNING: shift/reduce conflict for DIVIDE in state 26 resolved as shift
-WARNING: shift/reduce conflict for PLUS in state 26 resolved as shift
-WARNING: shift/reduce conflict for MINUS in state 26 resolved as shift
-WARNING: shift/reduce conflict for EXP in state 26 resolved as shift
-WARNING: shift/reduce conflict for FACTORIAL in state 26 resolved as shift
-WARNING: shift/reduce conflict for PI in state 26 resolved as shift
-WARNING: shift/reduce conflict for MULTIPLY in state 27 resolved as shift
-WARNING: shift/reduce conflict for DIVIDE in state 27 resolved as shift
-WARNING: shift/reduce conflict for PLUS in state 27 resolved as shift
-WARNING: shift/reduce conflict for MINUS in state 27 resolved as shift
-WARNING: shift/reduce conflict for EXP in state 27 resolved as shift
-WARNING: shift/reduce conflict for FACTORIAL in state 27 resolved as shift
-WARNING: shift/reduce conflict for PI in state 27 resolved as shift
-WARNING: shift/reduce conflict for MULTIPLY in state 28 resolved as shift
-WARNING: shift/reduce conflict for DIVIDE in state 28 resolved as shift
-WARNING: shift/reduce conflict for PLUS in state 28 resolved as shift
-WARNING: shift/reduce conflict for MINUS in state 28 resolved as shift
-WARNING: shift/reduce conflict for EXP in state 28 resolved as shift
-WARNING: shift/reduce conflict for FACTORIAL in state 28 resolved as shift
-WARNING: shift/reduce conflict for PI in state 28 resolved as shift
-WARNING: shift/reduce conflict for MULTIPLY in state 29 resolved as shift
-WARNING: shift/reduce conflict for DIVIDE in state 29 resolved as shift
-WARNING: shift/reduce conflict for PLUS in state 29 resolved as shift
-WARNING: shift/reduce conflict for MINUS in state 29 resolved as shift
-WARNING: shift/reduce conflict for EXP in state 29 resolved as shift
-WARNING: shift/reduce conflict for FACTORIAL in state 29 resolved as shift
-WARNING: shift/reduce conflict for PI in state 29 resolved as shift
 WARNING: shift/reduce conflict for MULTIPLY in state 30 resolved as shift
 WARNING: shift/reduce conflict for DIVIDE in state 30 resolved as shift
 WARNING: shift/reduce conflict for PLUS in state 30 resolved as shift

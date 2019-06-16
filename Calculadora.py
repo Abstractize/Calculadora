@@ -38,19 +38,17 @@ t_FACTORIAL = r'\!'
 t_ignore = r' '
 
 #Análisis léxico con palabras
-def t_EXP(t):
-    r'[0-9]+e[\+|\-]\d+'
-    t.value = float(t.value)
-    return t
 
 def t_EULER(t):
     r'e'
     t.value = math.e
     return t
+
 def t_PI(t):
     r'π'
     t.value = math.pi
     return t
+
 def t_SIN(t):
     r'sin'
     t.type = 'SIN'
@@ -73,6 +71,11 @@ def t_NATURAL(t):
 def t_SQUARE(t):
     r'√'
     t.type = 'SQUARE'
+    return t
+
+def t_EXP(t):
+    r'EXP'
+    t.type = 'EXP'
     return t
 
 def t_TAN(t):
@@ -101,6 +104,13 @@ def t_error(t):
 
 
 lexer = lex.lex()
+
+precedence = (
+
+    ('left', 'PLUS', 'MINUS'),
+    ('left', 'MULTIPLY', 'DIVIDE')
+
+)
 #Acá se añade la entrada a descomponer
 lexer.input("")
 
@@ -170,6 +180,10 @@ def p_empty(p):
     empty : 
     '''
     p[0] = None
+
+def p_error(p):
+    print("Syntax error found!")
+
 """
 parser = yacc.yacc()
 
