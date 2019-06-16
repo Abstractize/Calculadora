@@ -1,7 +1,7 @@
 #Agarrado de: https://programacionpython80889555.wordpress.com/2018/06/03/creando-una-calculadora-con-interfaz-grafica-con-python-y-tkinter-1a-parte/
 from tkinter import *
 from math import *
-from Calculadora import *
+from Calculadora2 import *
 ventana=Tk()
 ventana.title("CALCULADORA")
 ventana.geometry("392x700")
