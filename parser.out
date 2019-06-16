@@ -17,7 +17,7 @@ Rule 5     expression -> expression PLUS expression
 Rule 6     expression -> expression MINUS expression
 Rule 7     expression -> expression EXP expression
 Rule 8     expression -> expression FACTORIAL
-Rule 9     expression -> expression PI
+Rule 9     expression -> expression MULTIPLY PI
 Rule 10    expression -> SIN OPEN expression CLOSE
 Rule 11    expression -> COS OPEN expression CLOSE
 Rule 12    expression -> TAN OPEN expression CLOSE
@@ -42,7 +42,7 @@ FLOAT                : 18
 INT                  : 17
 LOG                  : 13 16
 MINUS                : 6
-MULTIPLY             : 3
+MULTIPLY             : 3 9
 NAME                 : 
 NATURAL              : 16
 OPEN                 : 10 11 12 13 14 15 16
@@ -73,7 +73,7 @@ state 0
     (6) expression -> . expression MINUS expression
     (7) expression -> . expression EXP expression
     (8) expression -> . expression FACTORIAL
-    (9) expression -> . expression PI
+    (9) expression -> . expression MULTIPLY PI
     (10) expression -> . SIN OPEN expression CLOSE
     (11) expression -> . COS OPEN expression CLOSE
     (12) expression -> . TAN OPEN expression CLOSE
@@ -114,7 +114,7 @@ state 2
     (6) expression -> expression . MINUS expression
     (7) expression -> expression . EXP expression
     (8) expression -> expression . FACTORIAL
-    (9) expression -> expression . PI
+    (9) expression -> expression . MULTIPLY PI
 
     $end            reduce using rule 1 (calc -> expression .)
     MULTIPLY        shift and go to state 12
@@ -123,7 +123,6 @@ state 2
     MINUS           shift and go to state 15
     EXP             shift and go to state 16
     FACTORIAL       shift and go to state 17
-    PI              shift and go to state 18
 
 
 state 3
@@ -137,21 +136,21 @@ state 4
 
     (10) expression -> SIN . OPEN expression CLOSE
 
-    OPEN            shift and go to state 19
+    OPEN            shift and go to state 18
 
 
 state 5
 
     (11) expression -> COS . OPEN expression CLOSE
 
-    OPEN            shift and go to state 20
+    OPEN            shift and go to state 19
 
 
 state 6
 
     (12) expression -> TAN . OPEN expression CLOSE
 
-    OPEN            shift and go to state 21
+    OPEN            shift and go to state 20
 
 
 state 7
@@ -159,22 +158,22 @@ state 7
     (13) expression -> LOG . OPEN expression CLOSE
     (16) expression -> LOG . NATURAL OPEN expression CLOSE
 
-    OPEN            shift and go to state 22
-    NATURAL         shift and go to state 23
+    OPEN            shift and go to state 21
+    NATURAL         shift and go to state 22
 
 
 state 8
 
     (14) expression -> SQUARE . OPEN expression CLOSE
 
-    OPEN            shift and go to state 24
+    OPEN            shift and go to state 23
 
 
 state 9
 
     (15) expression -> EULER . OPEN expression CLOSE
 
-    OPEN            shift and go to state 25
+    OPEN            shift and go to state 24
 
 
 state 10
@@ -187,7 +186,6 @@ state 10
     MINUS           reduce using rule 17 (expression -> INT .)
     EXP             reduce using rule 17 (expression -> INT .)
     FACTORIAL       reduce using rule 17 (expression -> INT .)
-    PI              reduce using rule 17 (expression -> INT .)
     $end            reduce using rule 17 (expression -> INT .)
     CLOSE           reduce using rule 17 (expression -> INT .)
 
@@ -202,7 +200,6 @@ state 11
     MINUS           reduce using rule 18 (expression -> FLOAT .)
     EXP             reduce using rule 18 (expression -> FLOAT .)
     FACTORIAL       reduce using rule 18 (expression -> FLOAT .)
-    PI              reduce using rule 18 (expression -> FLOAT .)
     $end            reduce using rule 18 (expression -> FLOAT .)
     CLOSE           reduce using rule 18 (expression -> FLOAT .)
 
@@ -210,13 +207,14 @@ state 11
 state 12
 
     (3) expression -> expression MULTIPLY . expression
+    (9) expression -> expression MULTIPLY . PI
     (3) expression -> . expression MULTIPLY expression
     (4) expression -> . expression DIVIDE expression
     (5) expression -> . expression PLUS expression
     (6) expression -> . expression MINUS expression
     (7) expression -> . expression EXP expression
     (8) expression -> . expression FACTORIAL
-    (9) expression -> . expression PI
+    (9) expression -> . expression MULTIPLY PI
     (10) expression -> . SIN OPEN expression CLOSE
     (11) expression -> . COS OPEN expression CLOSE
     (12) expression -> . TAN OPEN expression CLOSE
@@ -227,6 +225,7 @@ state 12
     (17) expression -> . INT
     (18) expression -> . FLOAT
 
+    PI              shift and go to state 26
     SIN             shift and go to state 4
     COS             shift and go to state 5
     TAN             shift and go to state 6
@@ -236,7 +235,7 @@ state 12
     INT             shift and go to state 10
     FLOAT           shift and go to state 11
 
-    expression                     shift and go to state 26
+    expression                     shift and go to state 25
 
 state 13
 
@@ -247,7 +246,7 @@ state 13
     (6) expression -> . expression MINUS expression
     (7) expression -> . expression EXP expression
     (8) expression -> . expression FACTORIAL
-    (9) expression -> . expression PI
+    (9) expression -> . expression MULTIPLY PI
     (10) expression -> . SIN OPEN expression CLOSE
     (11) expression -> . COS OPEN expression CLOSE
     (12) expression -> . TAN OPEN expression CLOSE
@@ -278,7 +277,7 @@ state 14
     (6) expression -> . expression MINUS expression
     (7) expression -> . expression EXP expression
     (8) expression -> . expression FACTORIAL
-    (9) expression -> . expression PI
+    (9) expression -> . expression MULTIPLY PI
     (10) expression -> . SIN OPEN expression CLOSE
     (11) expression -> . COS OPEN expression CLOSE
     (12) expression -> . TAN OPEN expression CLOSE
@@ -309,7 +308,7 @@ state 15
     (6) expression -> . expression MINUS expression
     (7) expression -> . expression EXP expression
     (8) expression -> . expression FACTORIAL
-    (9) expression -> . expression PI
+    (9) expression -> . expression MULTIPLY PI
     (10) expression -> . SIN OPEN expression CLOSE
     (11) expression -> . COS OPEN expression CLOSE
     (12) expression -> . TAN OPEN expression CLOSE
@@ -340,7 +339,7 @@ state 16
     (6) expression -> . expression MINUS expression
     (7) expression -> . expression EXP expression
     (8) expression -> . expression FACTORIAL
-    (9) expression -> . expression PI
+    (9) expression -> . expression MULTIPLY PI
     (10) expression -> . SIN OPEN expression CLOSE
     (11) expression -> . COS OPEN expression CLOSE
     (12) expression -> . TAN OPEN expression CLOSE
@@ -372,27 +371,11 @@ state 17
     MINUS           reduce using rule 8 (expression -> expression FACTORIAL .)
     EXP             reduce using rule 8 (expression -> expression FACTORIAL .)
     FACTORIAL       reduce using rule 8 (expression -> expression FACTORIAL .)
-    PI              reduce using rule 8 (expression -> expression FACTORIAL .)
     $end            reduce using rule 8 (expression -> expression FACTORIAL .)
     CLOSE           reduce using rule 8 (expression -> expression FACTORIAL .)
 
 
 state 18
-
-    (9) expression -> expression PI .
-
-    MULTIPLY        reduce using rule 9 (expression -> expression PI .)
-    DIVIDE          reduce using rule 9 (expression -> expression PI .)
-    PLUS            reduce using rule 9 (expression -> expression PI .)
-    MINUS           reduce using rule 9 (expression -> expression PI .)
-    EXP             reduce using rule 9 (expression -> expression PI .)
-    FACTORIAL       reduce using rule 9 (expression -> expression PI .)
-    PI              reduce using rule 9 (expression -> expression PI .)
-    $end            reduce using rule 9 (expression -> expression PI .)
-    CLOSE           reduce using rule 9 (expression -> expression PI .)
-
-
-state 19
 
     (10) expression -> SIN OPEN . expression CLOSE
     (3) expression -> . expression MULTIPLY expression
@@ -401,7 +384,7 @@ state 19
     (6) expression -> . expression MINUS expression
     (7) expression -> . expression EXP expression
     (8) expression -> . expression FACTORIAL
-    (9) expression -> . expression PI
+    (9) expression -> . expression MULTIPLY PI
     (10) expression -> . SIN OPEN expression CLOSE
     (11) expression -> . COS OPEN expression CLOSE
     (12) expression -> . TAN OPEN expression CLOSE
@@ -423,7 +406,7 @@ state 19
 
     expression                     shift and go to state 31
 
-state 20
+state 19
 
     (11) expression -> COS OPEN . expression CLOSE
     (3) expression -> . expression MULTIPLY expression
@@ -432,7 +415,7 @@ state 20
     (6) expression -> . expression MINUS expression
     (7) expression -> . expression EXP expression
     (8) expression -> . expression FACTORIAL
-    (9) expression -> . expression PI
+    (9) expression -> . expression MULTIPLY PI
     (10) expression -> . SIN OPEN expression CLOSE
     (11) expression -> . COS OPEN expression CLOSE
     (12) expression -> . TAN OPEN expression CLOSE
@@ -454,7 +437,7 @@ state 20
 
     expression                     shift and go to state 32
 
-state 21
+state 20
 
     (12) expression -> TAN OPEN . expression CLOSE
     (3) expression -> . expression MULTIPLY expression
@@ -463,7 +446,7 @@ state 21
     (6) expression -> . expression MINUS expression
     (7) expression -> . expression EXP expression
     (8) expression -> . expression FACTORIAL
-    (9) expression -> . expression PI
+    (9) expression -> . expression MULTIPLY PI
     (10) expression -> . SIN OPEN expression CLOSE
     (11) expression -> . COS OPEN expression CLOSE
     (12) expression -> . TAN OPEN expression CLOSE
@@ -485,7 +468,7 @@ state 21
 
     expression                     shift and go to state 33
 
-state 22
+state 21
 
     (13) expression -> LOG OPEN . expression CLOSE
     (3) expression -> . expression MULTIPLY expression
@@ -494,7 +477,7 @@ state 22
     (6) expression -> . expression MINUS expression
     (7) expression -> . expression EXP expression
     (8) expression -> . expression FACTORIAL
-    (9) expression -> . expression PI
+    (9) expression -> . expression MULTIPLY PI
     (10) expression -> . SIN OPEN expression CLOSE
     (11) expression -> . COS OPEN expression CLOSE
     (12) expression -> . TAN OPEN expression CLOSE
@@ -516,14 +499,14 @@ state 22
 
     expression                     shift and go to state 34
 
-state 23
+state 22
 
     (16) expression -> LOG NATURAL . OPEN expression CLOSE
 
     OPEN            shift and go to state 35
 
 
-state 24
+state 23
 
     (14) expression -> SQUARE OPEN . expression CLOSE
     (3) expression -> . expression MULTIPLY expression
@@ -532,7 +515,7 @@ state 24
     (6) expression -> . expression MINUS expression
     (7) expression -> . expression EXP expression
     (8) expression -> . expression FACTORIAL
-    (9) expression -> . expression PI
+    (9) expression -> . expression MULTIPLY PI
     (10) expression -> . SIN OPEN expression CLOSE
     (11) expression -> . COS OPEN expression CLOSE
     (12) expression -> . TAN OPEN expression CLOSE
@@ -554,7 +537,7 @@ state 24
 
     expression                     shift and go to state 36
 
-state 25
+state 24
 
     (15) expression -> EULER OPEN . expression CLOSE
     (3) expression -> . expression MULTIPLY expression
@@ -563,7 +546,7 @@ state 25
     (6) expression -> . expression MINUS expression
     (7) expression -> . expression EXP expression
     (8) expression -> . expression FACTORIAL
-    (9) expression -> . expression PI
+    (9) expression -> . expression MULTIPLY PI
     (10) expression -> . SIN OPEN expression CLOSE
     (11) expression -> . COS OPEN expression CLOSE
     (12) expression -> . TAN OPEN expression CLOSE
@@ -585,7 +568,7 @@ state 25
 
     expression                     shift and go to state 37
 
-state 26
+state 25
 
     (3) expression -> expression MULTIPLY expression .
     (3) expression -> expression . MULTIPLY expression
@@ -594,7 +577,7 @@ state 26
     (6) expression -> expression . MINUS expression
     (7) expression -> expression . EXP expression
     (8) expression -> expression . FACTORIAL
-    (9) expression -> expression . PI
+    (9) expression -> expression . MULTIPLY PI
 
     MULTIPLY        reduce using rule 3 (expression -> expression MULTIPLY expression .)
     DIVIDE          reduce using rule 3 (expression -> expression MULTIPLY expression .)
@@ -602,7 +585,6 @@ state 26
     MINUS           reduce using rule 3 (expression -> expression MULTIPLY expression .)
     EXP             reduce using rule 3 (expression -> expression MULTIPLY expression .)
     FACTORIAL       reduce using rule 3 (expression -> expression MULTIPLY expression .)
-    PI              reduce using rule 3 (expression -> expression MULTIPLY expression .)
     $end            reduce using rule 3 (expression -> expression MULTIPLY expression .)
     CLOSE           reduce using rule 3 (expression -> expression MULTIPLY expression .)
 
@@ -612,7 +594,20 @@ state 26
   ! MINUS           [ shift and go to state 15 ]
   ! EXP             [ shift and go to state 16 ]
   ! FACTORIAL       [ shift and go to state 17 ]
-  ! PI              [ shift and go to state 18 ]
+
+
+state 26
+
+    (9) expression -> expression MULTIPLY PI .
+
+    MULTIPLY        reduce using rule 9 (expression -> expression MULTIPLY PI .)
+    DIVIDE          reduce using rule 9 (expression -> expression MULTIPLY PI .)
+    PLUS            reduce using rule 9 (expression -> expression MULTIPLY PI .)
+    MINUS           reduce using rule 9 (expression -> expression MULTIPLY PI .)
+    EXP             reduce using rule 9 (expression -> expression MULTIPLY PI .)
+    FACTORIAL       reduce using rule 9 (expression -> expression MULTIPLY PI .)
+    $end            reduce using rule 9 (expression -> expression MULTIPLY PI .)
+    CLOSE           reduce using rule 9 (expression -> expression MULTIPLY PI .)
 
 
 state 27
@@ -624,7 +619,7 @@ state 27
     (6) expression -> expression . MINUS expression
     (7) expression -> expression . EXP expression
     (8) expression -> expression . FACTORIAL
-    (9) expression -> expression . PI
+    (9) expression -> expression . MULTIPLY PI
 
     MULTIPLY        reduce using rule 4 (expression -> expression DIVIDE expression .)
     DIVIDE          reduce using rule 4 (expression -> expression DIVIDE expression .)
@@ -632,7 +627,6 @@ state 27
     MINUS           reduce using rule 4 (expression -> expression DIVIDE expression .)
     EXP             reduce using rule 4 (expression -> expression DIVIDE expression .)
     FACTORIAL       reduce using rule 4 (expression -> expression DIVIDE expression .)
-    PI              reduce using rule 4 (expression -> expression DIVIDE expression .)
     $end            reduce using rule 4 (expression -> expression DIVIDE expression .)
     CLOSE           reduce using rule 4 (expression -> expression DIVIDE expression .)
 
@@ -642,7 +636,6 @@ state 27
   ! MINUS           [ shift and go to state 15 ]
   ! EXP             [ shift and go to state 16 ]
   ! FACTORIAL       [ shift and go to state 17 ]
-  ! PI              [ shift and go to state 18 ]
 
 
 state 28
@@ -654,13 +647,12 @@ state 28
     (6) expression -> expression . MINUS expression
     (7) expression -> expression . EXP expression
     (8) expression -> expression . FACTORIAL
-    (9) expression -> expression . PI
+    (9) expression -> expression . MULTIPLY PI
 
     PLUS            reduce using rule 5 (expression -> expression PLUS expression .)
     MINUS           reduce using rule 5 (expression -> expression PLUS expression .)
     EXP             reduce using rule 5 (expression -> expression PLUS expression .)
     FACTORIAL       reduce using rule 5 (expression -> expression PLUS expression .)
-    PI              reduce using rule 5 (expression -> expression PLUS expression .)
     $end            reduce using rule 5 (expression -> expression PLUS expression .)
     CLOSE           reduce using rule 5 (expression -> expression PLUS expression .)
     MULTIPLY        shift and go to state 12
@@ -672,7 +664,6 @@ state 28
   ! MINUS           [ shift and go to state 15 ]
   ! EXP             [ shift and go to state 16 ]
   ! FACTORIAL       [ shift and go to state 17 ]
-  ! PI              [ shift and go to state 18 ]
 
 
 state 29
@@ -684,13 +675,12 @@ state 29
     (6) expression -> expression . MINUS expression
     (7) expression -> expression . EXP expression
     (8) expression -> expression . FACTORIAL
-    (9) expression -> expression . PI
+    (9) expression -> expression . MULTIPLY PI
 
     PLUS            reduce using rule 6 (expression -> expression MINUS expression .)
     MINUS           reduce using rule 6 (expression -> expression MINUS expression .)
     EXP             reduce using rule 6 (expression -> expression MINUS expression .)
     FACTORIAL       reduce using rule 6 (expression -> expression MINUS expression .)
-    PI              reduce using rule 6 (expression -> expression MINUS expression .)
     $end            reduce using rule 6 (expression -> expression MINUS expression .)
     CLOSE           reduce using rule 6 (expression -> expression MINUS expression .)
     MULTIPLY        shift and go to state 12
@@ -702,7 +692,6 @@ state 29
   ! MINUS           [ shift and go to state 15 ]
   ! EXP             [ shift and go to state 16 ]
   ! FACTORIAL       [ shift and go to state 17 ]
-  ! PI              [ shift and go to state 18 ]
 
 
 state 30
@@ -714,7 +703,7 @@ state 30
     (6) expression -> expression . MINUS expression
     (7) expression -> expression . EXP expression
     (8) expression -> expression . FACTORIAL
-    (9) expression -> expression . PI
+    (9) expression -> expression . MULTIPLY PI
 
   ! shift/reduce conflict for MULTIPLY resolved as shift
   ! shift/reduce conflict for DIVIDE resolved as shift
@@ -722,7 +711,6 @@ state 30
   ! shift/reduce conflict for MINUS resolved as shift
   ! shift/reduce conflict for EXP resolved as shift
   ! shift/reduce conflict for FACTORIAL resolved as shift
-  ! shift/reduce conflict for PI resolved as shift
     $end            reduce using rule 7 (expression -> expression EXP expression .)
     CLOSE           reduce using rule 7 (expression -> expression EXP expression .)
     MULTIPLY        shift and go to state 12
@@ -731,7 +719,6 @@ state 30
     MINUS           shift and go to state 15
     EXP             shift and go to state 16
     FACTORIAL       shift and go to state 17
-    PI              shift and go to state 18
 
   ! MULTIPLY        [ reduce using rule 7 (expression -> expression EXP expression .) ]
   ! DIVIDE          [ reduce using rule 7 (expression -> expression EXP expression .) ]
@@ -739,7 +726,6 @@ state 30
   ! MINUS           [ reduce using rule 7 (expression -> expression EXP expression .) ]
   ! EXP             [ reduce using rule 7 (expression -> expression EXP expression .) ]
   ! FACTORIAL       [ reduce using rule 7 (expression -> expression EXP expression .) ]
-  ! PI              [ reduce using rule 7 (expression -> expression EXP expression .) ]
 
 
 state 31
@@ -751,7 +737,7 @@ state 31
     (6) expression -> expression . MINUS expression
     (7) expression -> expression . EXP expression
     (8) expression -> expression . FACTORIAL
-    (9) expression -> expression . PI
+    (9) expression -> expression . MULTIPLY PI
 
     CLOSE           shift and go to state 38
     MULTIPLY        shift and go to state 12
@@ -760,7 +746,6 @@ state 31
     MINUS           shift and go to state 15
     EXP             shift and go to state 16
     FACTORIAL       shift and go to state 17
-    PI              shift and go to state 18
 
 
 state 32
@@ -772,7 +757,7 @@ state 32
     (6) expression -> expression . MINUS expression
     (7) expression -> expression . EXP expression
     (8) expression -> expression . FACTORIAL
-    (9) expression -> expression . PI
+    (9) expression -> expression . MULTIPLY PI
 
     CLOSE           shift and go to state 39
     MULTIPLY        shift and go to state 12
@@ -781,7 +766,6 @@ state 32
     MINUS           shift and go to state 15
     EXP             shift and go to state 16
     FACTORIAL       shift and go to state 17
-    PI              shift and go to state 18
 
 
 state 33
@@ -793,7 +777,7 @@ state 33
     (6) expression -> expression . MINUS expression
     (7) expression -> expression . EXP expression
     (8) expression -> expression . FACTORIAL
-    (9) expression -> expression . PI
+    (9) expression -> expression . MULTIPLY PI
 
     CLOSE           shift and go to state 40
     MULTIPLY        shift and go to state 12
@@ -802,7 +786,6 @@ state 33
     MINUS           shift and go to state 15
     EXP             shift and go to state 16
     FACTORIAL       shift and go to state 17
-    PI              shift and go to state 18
 
 
 state 34
@@ -814,7 +797,7 @@ state 34
     (6) expression -> expression . MINUS expression
     (7) expression -> expression . EXP expression
     (8) expression -> expression . FACTORIAL
-    (9) expression -> expression . PI
+    (9) expression -> expression . MULTIPLY PI
 
     CLOSE           shift and go to state 41
     MULTIPLY        shift and go to state 12
@@ -823,7 +806,6 @@ state 34
     MINUS           shift and go to state 15
     EXP             shift and go to state 16
     FACTORIAL       shift and go to state 17
-    PI              shift and go to state 18
 
 
 state 35
@@ -835,7 +817,7 @@ state 35
     (6) expression -> . expression MINUS expression
     (7) expression -> . expression EXP expression
     (8) expression -> . expression FACTORIAL
-    (9) expression -> . expression PI
+    (9) expression -> . expression MULTIPLY PI
     (10) expression -> . SIN OPEN expression CLOSE
     (11) expression -> . COS OPEN expression CLOSE
     (12) expression -> . TAN OPEN expression CLOSE
@@ -866,7 +848,7 @@ state 36
     (6) expression -> expression . MINUS expression
     (7) expression -> expression . EXP expression
     (8) expression -> expression . FACTORIAL
-    (9) expression -> expression . PI
+    (9) expression -> expression . MULTIPLY PI
 
     CLOSE           shift and go to state 43
     MULTIPLY        shift and go to state 12
@@ -875,7 +857,6 @@ state 36
     MINUS           shift and go to state 15
     EXP             shift and go to state 16
     FACTORIAL       shift and go to state 17
-    PI              shift and go to state 18
 
 
 state 37
@@ -887,7 +868,7 @@ state 37
     (6) expression -> expression . MINUS expression
     (7) expression -> expression . EXP expression
     (8) expression -> expression . FACTORIAL
-    (9) expression -> expression . PI
+    (9) expression -> expression . MULTIPLY PI
 
     CLOSE           shift and go to state 44
     MULTIPLY        shift and go to state 12
@@ -896,7 +877,6 @@ state 37
     MINUS           shift and go to state 15
     EXP             shift and go to state 16
     FACTORIAL       shift and go to state 17
-    PI              shift and go to state 18
 
 
 state 38
@@ -909,7 +889,6 @@ state 38
     MINUS           reduce using rule 10 (expression -> SIN OPEN expression CLOSE .)
     EXP             reduce using rule 10 (expression -> SIN OPEN expression CLOSE .)
     FACTORIAL       reduce using rule 10 (expression -> SIN OPEN expression CLOSE .)
-    PI              reduce using rule 10 (expression -> SIN OPEN expression CLOSE .)
     $end            reduce using rule 10 (expression -> SIN OPEN expression CLOSE .)
     CLOSE           reduce using rule 10 (expression -> SIN OPEN expression CLOSE .)
 
@@ -924,7 +903,6 @@ state 39
     MINUS           reduce using rule 11 (expression -> COS OPEN expression CLOSE .)
     EXP             reduce using rule 11 (expression -> COS OPEN expression CLOSE .)
     FACTORIAL       reduce using rule 11 (expression -> COS OPEN expression CLOSE .)
-    PI              reduce using rule 11 (expression -> COS OPEN expression CLOSE .)
     $end            reduce using rule 11 (expression -> COS OPEN expression CLOSE .)
     CLOSE           reduce using rule 11 (expression -> COS OPEN expression CLOSE .)
 
@@ -939,7 +917,6 @@ state 40
     MINUS           reduce using rule 12 (expression -> TAN OPEN expression CLOSE .)
     EXP             reduce using rule 12 (expression -> TAN OPEN expression CLOSE .)
     FACTORIAL       reduce using rule 12 (expression -> TAN OPEN expression CLOSE .)
-    PI              reduce using rule 12 (expression -> TAN OPEN expression CLOSE .)
     $end            reduce using rule 12 (expression -> TAN OPEN expression CLOSE .)
     CLOSE           reduce using rule 12 (expression -> TAN OPEN expression CLOSE .)
 
@@ -954,7 +931,6 @@ state 41
     MINUS           reduce using rule 13 (expression -> LOG OPEN expression CLOSE .)
     EXP             reduce using rule 13 (expression -> LOG OPEN expression CLOSE .)
     FACTORIAL       reduce using rule 13 (expression -> LOG OPEN expression CLOSE .)
-    PI              reduce using rule 13 (expression -> LOG OPEN expression CLOSE .)
     $end            reduce using rule 13 (expression -> LOG OPEN expression CLOSE .)
     CLOSE           reduce using rule 13 (expression -> LOG OPEN expression CLOSE .)
 
@@ -968,7 +944,7 @@ state 42
     (6) expression -> expression . MINUS expression
     (7) expression -> expression . EXP expression
     (8) expression -> expression . FACTORIAL
-    (9) expression -> expression . PI
+    (9) expression -> expression . MULTIPLY PI
 
     CLOSE           shift and go to state 45
     MULTIPLY        shift and go to state 12
@@ -977,7 +953,6 @@ state 42
     MINUS           shift and go to state 15
     EXP             shift and go to state 16
     FACTORIAL       shift and go to state 17
-    PI              shift and go to state 18
 
 
 state 43
@@ -990,7 +965,6 @@ state 43
     MINUS           reduce using rule 14 (expression -> SQUARE OPEN expression CLOSE .)
     EXP             reduce using rule 14 (expression -> SQUARE OPEN expression CLOSE .)
     FACTORIAL       reduce using rule 14 (expression -> SQUARE OPEN expression CLOSE .)
-    PI              reduce using rule 14 (expression -> SQUARE OPEN expression CLOSE .)
     $end            reduce using rule 14 (expression -> SQUARE OPEN expression CLOSE .)
     CLOSE           reduce using rule 14 (expression -> SQUARE OPEN expression CLOSE .)
 
@@ -1005,7 +979,6 @@ state 44
     MINUS           reduce using rule 15 (expression -> EULER OPEN expression CLOSE .)
     EXP             reduce using rule 15 (expression -> EULER OPEN expression CLOSE .)
     FACTORIAL       reduce using rule 15 (expression -> EULER OPEN expression CLOSE .)
-    PI              reduce using rule 15 (expression -> EULER OPEN expression CLOSE .)
     $end            reduce using rule 15 (expression -> EULER OPEN expression CLOSE .)
     CLOSE           reduce using rule 15 (expression -> EULER OPEN expression CLOSE .)
 
@@ -1020,7 +993,6 @@ state 45
     MINUS           reduce using rule 16 (expression -> LOG NATURAL OPEN expression CLOSE .)
     EXP             reduce using rule 16 (expression -> LOG NATURAL OPEN expression CLOSE .)
     FACTORIAL       reduce using rule 16 (expression -> LOG NATURAL OPEN expression CLOSE .)
-    PI              reduce using rule 16 (expression -> LOG NATURAL OPEN expression CLOSE .)
     $end            reduce using rule 16 (expression -> LOG NATURAL OPEN expression CLOSE .)
     CLOSE           reduce using rule 16 (expression -> LOG NATURAL OPEN expression CLOSE .)
 
@@ -1033,4 +1005,3 @@ WARNING: shift/reduce conflict for PLUS in state 30 resolved as shift
 WARNING: shift/reduce conflict for MINUS in state 30 resolved as shift
 WARNING: shift/reduce conflict for EXP in state 30 resolved as shift
 WARNING: shift/reduce conflict for FACTORIAL in state 30 resolved as shift
-WARNING: shift/reduce conflict for PI in state 30 resolved as shift

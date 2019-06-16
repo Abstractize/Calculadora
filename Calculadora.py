@@ -45,7 +45,7 @@ def t_EULER(t):
     return t
 
 def t_PI(t):
-    r'π'
+    r'pi'
     t.value = math.pi
     return t
 
@@ -69,7 +69,7 @@ def t_NATURAL(t):
     t.type = 'NATURAL'
     return t
 def t_SQUARE(t):
-    r'√'
+    r'sqrt'
     t.type = 'SQUARE'
     return t
 
@@ -139,12 +139,15 @@ def p_expression_s_r_m_d(p):
                | expression MINUS expression 
                | expression EXP expression
     '''
+    #print(eval(str(p[1])+str(p[2])+str(p[3])))
     p[0] = (p[2], p[1], p[3])
+    print (p[0])
+    p[0] = eval(str(p[1])+str(p[2])+str(p[3]))
 
 def p_expression_fact_pi(p):
     '''
     expression : expression FACTORIAL
-               | expression PI
+               | expression MULTIPLY PI
     '''
     p[0] = (p[1], p[2])
 
@@ -189,12 +192,17 @@ parser = yacc.yacc()
 
 while True:
     try:
-        s = input()
+        s = input("calc >> ")
     except EOFError:
         break
-    parser.parse(s)
+    result = parser.parse(s)
+
 """
 #Gabo tocó aquí
 def calculate(s):
     parser = yacc.yacc()
     parser.parse(s)
+    print(s)
+    return eval(str(s))
+
+    

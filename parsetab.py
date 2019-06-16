@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'leftPLUSMINUSleftMULTIPLYDIVIDECLOSE COS DIVIDE EQUALS EULER EXP FACTORIAL FLOAT INT LOG MINUS MULTIPLY NAME NATURAL OPEN PI PLUS SIN SQUARE TAN UP\n    calc : expression\n         | empty\n    \n    expression : expression MULTIPLY expression\n               | expression DIVIDE expression \n               | expression PLUS expression\n               | expression MINUS expression \n               | expression EXP expression\n    \n    expression : expression FACTORIAL\n               | expression PI\n    \n    expression : SIN OPEN expression CLOSE\n               | COS OPEN expression CLOSE\n               | TAN OPEN expression CLOSE\n               | LOG OPEN expression CLOSE\n               | SQUARE OPEN expression CLOSE\n               | EULER OPEN expression CLOSE\n               \n    \n    expression : LOG NATURAL OPEN expression CLOSE\n    \n     expression : INT\n                | FLOAT\n     \n    empty : \n    '
+_lr_signature = 'leftPLUSMINUSleftMULTIPLYDIVIDECLOSE COS DIVIDE EQUALS EULER EXP FACTORIAL FLOAT INT LOG MINUS MULTIPLY NAME NATURAL OPEN PI PLUS SIN SQUARE TAN UP\n    calc : expression\n         | empty\n    \n    expression : expression MULTIPLY expression\n               | expression DIVIDE expression \n               | expression PLUS expression\n               | expression MINUS expression \n               | expression EXP expression\n    \n    expression : expression FACTORIAL\n               | expression MULTIPLY PI\n    \n    expression : SIN OPEN expression CLOSE\n               | COS OPEN expression CLOSE\n               | TAN OPEN expression CLOSE\n               | LOG OPEN expression CLOSE\n               | SQUARE OPEN expression CLOSE\n               | EULER OPEN expression CLOSE\n               \n    \n    expression : LOG NATURAL OPEN expression CLOSE\n    \n     expression : INT\n                | FLOAT\n     \n    empty : \n    '
     
-_lr_action_items = {'SIN':([0,12,13,14,15,16,19,20,21,22,24,25,35,],[4,4,4,4,4,4,4,4,4,4,4,4,4,]),'COS':([0,12,13,14,15,16,19,20,21,22,24,25,35,],[5,5,5,5,5,5,5,5,5,5,5,5,5,]),'TAN':([0,12,13,14,15,16,19,20,21,22,24,25,35,],[6,6,6,6,6,6,6,6,6,6,6,6,6,]),'LOG':([0,12,13,14,15,16,19,20,21,22,24,25,35,],[7,7,7,7,7,7,7,7,7,7,7,7,7,]),'SQUARE':([0,12,13,14,15,16,19,20,21,22,24,25,35,],[8,8,8,8,8,8,8,8,8,8,8,8,8,]),'EULER':([0,12,13,14,15,16,19,20,21,22,24,25,35,],[9,9,9,9,9,9,9,9,9,9,9,9,9,]),'INT':([0,12,13,14,15,16,19,20,21,22,24,25,35,],[10,10,10,10,10,10,10,10,10,10,10,10,10,]),'FLOAT':([0,12,13,14,15,16,19,20,21,22,24,25,35,],[11,11,11,11,11,11,11,11,11,11,11,11,11,]),'$end':([0,1,2,3,10,11,17,18,26,27,28,29,30,38,39,40,41,43,44,45,],[-19,0,-1,-2,-17,-18,-8,-9,-3,-4,-5,-6,-7,-10,-11,-12,-13,-14,-15,-16,]),'MULTIPLY':([2,10,11,17,18,26,27,28,29,30,31,32,33,34,36,37,38,39,40,41,42,43,44,45,],[12,-17,-18,-8,-9,-3,-4,12,12,12,12,12,12,12,12,12,-10,-11,-12,-13,12,-14,-15,-16,]),'DIVIDE':([2,10,11,17,18,26,27,28,29,30,31,32,33,34,36,37,38,39,40,41,42,43,44,45,],[13,-17,-18,-8,-9,-3,-4,13,13,13,13,13,13,13,13,13,-10,-11,-12,-13,13,-14,-15,-16,]),'PLUS':([2,10,11,17,18,26,27,28,29,30,31,32,33,34,36,37,38,39,40,41,42,43,44,45,],[14,-17,-18,-8,-9,-3,-4,-5,-6,14,14,14,14,14,14,14,-10,-11,-12,-13,14,-14,-15,-16,]),'MINUS':([2,10,11,17,18,26,27,28,29,30,31,32,33,34,36,37,38,39,40,41,42,43,44,45,],[15,-17,-18,-8,-9,-3,-4,-5,-6,15,15,15,15,15,15,15,-10,-11,-12,-13,15,-14,-15,-16,]),'EXP':([2,10,11,17,18,26,27,28,29,30,31,32,33,34,36,37,38,39,40,41,42,43,44,45,],[16,-17,-18,-8,-9,-3,-4,-5,-6,16,16,16,16,16,16,16,-10,-11,-12,-13,16,-14,-15,-16,]),'FACTORIAL':([2,10,11,17,18,26,27,28,29,30,31,32,33,34,36,37,38,39,40,41,42,43,44,45,],[17,-17,-18,-8,-9,-3,-4,-5,-6,17,17,17,17,17,17,17,-10,-11,-12,-13,17,-14,-15,-16,]),'PI':([2,10,11,17,18,26,27,28,29,30,31,32,33,34,36,37,38,39,40,41,42,43,44,45,],[18,-17,-18,-8,-9,-3,-4,-5,-6,18,18,18,18,18,18,18,-10,-11,-12,-13,18,-14,-15,-16,]),'OPEN':([4,5,6,7,8,9,23,],[19,20,21,22,24,25,35,]),'NATURAL':([7,],[23,]),'CLOSE':([10,11,17,18,26,27,28,29,30,31,32,33,34,36,37,38,39,40,41,42,43,44,45,],[-17,-18,-8,-9,-3,-4,-5,-6,-7,38,39,40,41,43,44,-10,-11,-12,-13,45,-14,-15,-16,]),}
+_lr_action_items = {'SIN':([0,12,13,14,15,16,18,19,20,21,23,24,35,],[4,4,4,4,4,4,4,4,4,4,4,4,4,]),'COS':([0,12,13,14,15,16,18,19,20,21,23,24,35,],[5,5,5,5,5,5,5,5,5,5,5,5,5,]),'TAN':([0,12,13,14,15,16,18,19,20,21,23,24,35,],[6,6,6,6,6,6,6,6,6,6,6,6,6,]),'LOG':([0,12,13,14,15,16,18,19,20,21,23,24,35,],[7,7,7,7,7,7,7,7,7,7,7,7,7,]),'SQUARE':([0,12,13,14,15,16,18,19,20,21,23,24,35,],[8,8,8,8,8,8,8,8,8,8,8,8,8,]),'EULER':([0,12,13,14,15,16,18,19,20,21,23,24,35,],[9,9,9,9,9,9,9,9,9,9,9,9,9,]),'INT':([0,12,13,14,15,16,18,19,20,21,23,24,35,],[10,10,10,10,10,10,10,10,10,10,10,10,10,]),'FLOAT':([0,12,13,14,15,16,18,19,20,21,23,24,35,],[11,11,11,11,11,11,11,11,11,11,11,11,11,]),'$end':([0,1,2,3,10,11,17,25,26,27,28,29,30,38,39,40,41,43,44,45,],[-19,0,-1,-2,-17,-18,-8,-3,-9,-4,-5,-6,-7,-10,-11,-12,-13,-14,-15,-16,]),'MULTIPLY':([2,10,11,17,25,26,27,28,29,30,31,32,33,34,36,37,38,39,40,41,42,43,44,45,],[12,-17,-18,-8,-3,-9,-4,12,12,12,12,12,12,12,12,12,-10,-11,-12,-13,12,-14,-15,-16,]),'DIVIDE':([2,10,11,17,25,26,27,28,29,30,31,32,33,34,36,37,38,39,40,41,42,43,44,45,],[13,-17,-18,-8,-3,-9,-4,13,13,13,13,13,13,13,13,13,-10,-11,-12,-13,13,-14,-15,-16,]),'PLUS':([2,10,11,17,25,26,27,28,29,30,31,32,33,34,36,37,38,39,40,41,42,43,44,45,],[14,-17,-18,-8,-3,-9,-4,-5,-6,14,14,14,14,14,14,14,-10,-11,-12,-13,14,-14,-15,-16,]),'MINUS':([2,10,11,17,25,26,27,28,29,30,31,32,33,34,36,37,38,39,40,41,42,43,44,45,],[15,-17,-18,-8,-3,-9,-4,-5,-6,15,15,15,15,15,15,15,-10,-11,-12,-13,15,-14,-15,-16,]),'EXP':([2,10,11,17,25,26,27,28,29,30,31,32,33,34,36,37,38,39,40,41,42,43,44,45,],[16,-17,-18,-8,-3,-9,-4,-5,-6,16,16,16,16,16,16,16,-10,-11,-12,-13,16,-14,-15,-16,]),'FACTORIAL':([2,10,11,17,25,26,27,28,29,30,31,32,33,34,36,37,38,39,40,41,42,43,44,45,],[17,-17,-18,-8,-3,-9,-4,-5,-6,17,17,17,17,17,17,17,-10,-11,-12,-13,17,-14,-15,-16,]),'OPEN':([4,5,6,7,8,9,22,],[18,19,20,21,23,24,35,]),'NATURAL':([7,],[22,]),'CLOSE':([10,11,17,25,26,27,28,29,30,31,32,33,34,36,37,38,39,40,41,42,43,44,45,],[-17,-18,-8,-3,-9,-4,-5,-6,-7,38,39,40,41,43,44,-10,-11,-12,-13,45,-14,-15,-16,]),'PI':([12,],[26,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'calc':([0,],[1,]),'expression':([0,12,13,14,15,16,19,20,21,22,24,25,35,],[2,26,27,28,29,30,31,32,33,34,36,37,42,]),'empty':([0,],[3,]),}
+_lr_goto_items = {'calc':([0,],[1,]),'expression':([0,12,13,14,15,16,18,19,20,21,23,24,35,],[2,25,27,28,29,30,31,32,33,34,36,37,42,]),'empty':([0,],[3,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -27,23 +27,23 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> calc","S'",1,None,None,None),
-  ('calc -> expression','calc',1,'p_calc','Calculadora.py',126),
-  ('calc -> empty','calc',1,'p_calc','Calculadora.py',127),
-  ('expression -> expression MULTIPLY expression','expression',3,'p_expression_s_r_m_d','Calculadora.py',133),
-  ('expression -> expression DIVIDE expression','expression',3,'p_expression_s_r_m_d','Calculadora.py',134),
-  ('expression -> expression PLUS expression','expression',3,'p_expression_s_r_m_d','Calculadora.py',135),
-  ('expression -> expression MINUS expression','expression',3,'p_expression_s_r_m_d','Calculadora.py',136),
-  ('expression -> expression EXP expression','expression',3,'p_expression_s_r_m_d','Calculadora.py',137),
-  ('expression -> expression FACTORIAL','expression',2,'p_expression_fact_pi','Calculadora.py',143),
-  ('expression -> expression PI','expression',2,'p_expression_fact_pi','Calculadora.py',144),
-  ('expression -> SIN OPEN expression CLOSE','expression',4,'p_expression_trigonometria_log_exp_sqrt','Calculadora.py',151),
-  ('expression -> COS OPEN expression CLOSE','expression',4,'p_expression_trigonometria_log_exp_sqrt','Calculadora.py',152),
-  ('expression -> TAN OPEN expression CLOSE','expression',4,'p_expression_trigonometria_log_exp_sqrt','Calculadora.py',153),
-  ('expression -> LOG OPEN expression CLOSE','expression',4,'p_expression_trigonometria_log_exp_sqrt','Calculadora.py',154),
-  ('expression -> SQUARE OPEN expression CLOSE','expression',4,'p_expression_trigonometria_log_exp_sqrt','Calculadora.py',155),
-  ('expression -> EULER OPEN expression CLOSE','expression',4,'p_expression_trigonometria_log_exp_sqrt','Calculadora.py',156),
-  ('expression -> LOG NATURAL OPEN expression CLOSE','expression',5,'p_expression_log_natural','Calculadora.py',163),
-  ('expression -> INT','expression',1,'p_expression_int_float','Calculadora.py',169),
-  ('expression -> FLOAT','expression',1,'p_expression_int_float','Calculadora.py',170),
-  ('empty -> <empty>','empty',0,'p_empty','Calculadora.py',176),
+  ('calc -> expression','calc',1,'p_calc','Calculadora.py',129),
+  ('calc -> empty','calc',1,'p_calc','Calculadora.py',130),
+  ('expression -> expression MULTIPLY expression','expression',3,'p_expression_s_r_m_d','Calculadora.py',136),
+  ('expression -> expression DIVIDE expression','expression',3,'p_expression_s_r_m_d','Calculadora.py',137),
+  ('expression -> expression PLUS expression','expression',3,'p_expression_s_r_m_d','Calculadora.py',138),
+  ('expression -> expression MINUS expression','expression',3,'p_expression_s_r_m_d','Calculadora.py',139),
+  ('expression -> expression EXP expression','expression',3,'p_expression_s_r_m_d','Calculadora.py',140),
+  ('expression -> expression FACTORIAL','expression',2,'p_expression_fact_pi','Calculadora.py',149),
+  ('expression -> expression MULTIPLY PI','expression',3,'p_expression_fact_pi','Calculadora.py',150),
+  ('expression -> SIN OPEN expression CLOSE','expression',4,'p_expression_trigonometria_log_exp_sqrt','Calculadora.py',157),
+  ('expression -> COS OPEN expression CLOSE','expression',4,'p_expression_trigonometria_log_exp_sqrt','Calculadora.py',158),
+  ('expression -> TAN OPEN expression CLOSE','expression',4,'p_expression_trigonometria_log_exp_sqrt','Calculadora.py',159),
+  ('expression -> LOG OPEN expression CLOSE','expression',4,'p_expression_trigonometria_log_exp_sqrt','Calculadora.py',160),
+  ('expression -> SQUARE OPEN expression CLOSE','expression',4,'p_expression_trigonometria_log_exp_sqrt','Calculadora.py',161),
+  ('expression -> EULER OPEN expression CLOSE','expression',4,'p_expression_trigonometria_log_exp_sqrt','Calculadora.py',162),
+  ('expression -> LOG NATURAL OPEN expression CLOSE','expression',5,'p_expression_log_natural','Calculadora.py',169),
+  ('expression -> INT','expression',1,'p_expression_int_float','Calculadora.py',175),
+  ('expression -> FLOAT','expression',1,'p_expression_int_float','Calculadora.py',176),
+  ('empty -> <empty>','empty',0,'p_empty','Calculadora.py',182),
 ]
