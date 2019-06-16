@@ -28,10 +28,9 @@ def operation():
         #opera=str(eval(operador))#SIRVE PARA REALIZAR LA OPERACIÓN PREVIAMENTE VISUALIZADA EN PANTALLA
         
     except:
-        
         clear()
         opera=("ERROR")
-    input_text.set(opera)#MUESTRA EL RESULTADO
+    input_text.set(operador)#MUESTRA EL RESULTADO
 
 
     

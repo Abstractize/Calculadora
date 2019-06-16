@@ -1,0 +1,1092 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    EQUALS
+    NAME
+    UP
+
+Grammar
+
+Rule 0     S' -> calc
+Rule 1     calc -> expression
+Rule 2     calc -> empty
+Rule 3     expression -> expression MULTIPLY expression
+Rule 4     expression -> expression DIVIDE expression
+Rule 5     expression -> expression PLUS expression
+Rule 6     expression -> expression MINUS expression
+Rule 7     expression -> expression EXP expression
+Rule 8     expression -> expression FACTORIAL
+Rule 9     expression -> expression PI
+Rule 10    expression -> SIN OPEN expression CLOSE
+Rule 11    expression -> COS OPEN expression CLOSE
+Rule 12    expression -> TAN OPEN expression CLOSE
+Rule 13    expression -> LOG OPEN expression CLOSE
+Rule 14    expression -> SQUARE OPEN expression CLOSE
+Rule 15    expression -> EULER OPEN expression CLOSE
+Rule 16    expression -> LOG NATURAL OPEN expression CLOSE
+Rule 17    expression -> INT
+Rule 18    expression -> FLOAT
+Rule 19    empty -> <empty>
+
+Terminals, with rules where they appear
+
+CLOSE                : 10 11 12 13 14 15 16
+COS                  : 11
+DIVIDE               : 4
+EQUALS               : 
+EULER                : 15
+EXP                  : 7
+FACTORIAL            : 8
+FLOAT                : 18
+INT                  : 17
+LOG                  : 13 16
+MINUS                : 6
+MULTIPLY             : 3
+NAME                 : 
+NATURAL              : 16
+OPEN                 : 10 11 12 13 14 15 16
+PI                   : 9
+PLUS                 : 5
+SIN                  : 10
+SQUARE               : 14
+TAN                  : 12
+UP                   : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+calc                 : 0
+empty                : 2
+expression           : 1 3 3 4 4 5 5 6 6 7 7 8 9 10 11 12 13 14 15 16
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . calc
+    (1) calc -> . expression
+    (2) calc -> . empty
+    (3) expression -> . expression MULTIPLY expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression PLUS expression
+    (6) expression -> . expression MINUS expression
+    (7) expression -> . expression EXP expression
+    (8) expression -> . expression FACTORIAL
+    (9) expression -> . expression PI
+    (10) expression -> . SIN OPEN expression CLOSE
+    (11) expression -> . COS OPEN expression CLOSE
+    (12) expression -> . TAN OPEN expression CLOSE
+    (13) expression -> . LOG OPEN expression CLOSE
+    (14) expression -> . SQUARE OPEN expression CLOSE
+    (15) expression -> . EULER OPEN expression CLOSE
+    (16) expression -> . LOG NATURAL OPEN expression CLOSE
+    (17) expression -> . INT
+    (18) expression -> . FLOAT
+    (19) empty -> .
+
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    SQUARE          shift and go to state 8
+    EULER           shift and go to state 9
+    INT             shift and go to state 10
+    FLOAT           shift and go to state 11
+    $end            reduce using rule 19 (empty -> .)
+
+    calc                           shift and go to state 1
+    expression                     shift and go to state 2
+    empty                          shift and go to state 3
+
+state 1
+
+    (0) S' -> calc .
+
+
+
+state 2
+
+    (1) calc -> expression .
+    (3) expression -> expression . MULTIPLY expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . PLUS expression
+    (6) expression -> expression . MINUS expression
+    (7) expression -> expression . EXP expression
+    (8) expression -> expression . FACTORIAL
+    (9) expression -> expression . PI
+
+    $end            reduce using rule 1 (calc -> expression .)
+    MULTIPLY        shift and go to state 12
+    DIVIDE          shift and go to state 13
+    PLUS            shift and go to state 14
+    MINUS           shift and go to state 15
+    EXP             shift and go to state 16
+    FACTORIAL       shift and go to state 17
+    PI              shift and go to state 18
+
+
+state 3
+
+    (2) calc -> empty .
+
+    $end            reduce using rule 2 (calc -> empty .)
+
+
+state 4
+
+    (10) expression -> SIN . OPEN expression CLOSE
+
+    OPEN            shift and go to state 19
+
+
+state 5
+
+    (11) expression -> COS . OPEN expression CLOSE
+
+    OPEN            shift and go to state 20
+
+
+state 6
+
+    (12) expression -> TAN . OPEN expression CLOSE
+
+    OPEN            shift and go to state 21
+
+
+state 7
+
+    (13) expression -> LOG . OPEN expression CLOSE
+    (16) expression -> LOG . NATURAL OPEN expression CLOSE
+
+    OPEN            shift and go to state 22
+    NATURAL         shift and go to state 23
+
+
+state 8
+
+    (14) expression -> SQUARE . OPEN expression CLOSE
+
+    OPEN            shift and go to state 24
+
+
+state 9
+
+    (15) expression -> EULER . OPEN expression CLOSE
+
+    OPEN            shift and go to state 25
+
+
+state 10
+
+    (17) expression -> INT .
+
+    MULTIPLY        reduce using rule 17 (expression -> INT .)
+    DIVIDE          reduce using rule 17 (expression -> INT .)
+    PLUS            reduce using rule 17 (expression -> INT .)
+    MINUS           reduce using rule 17 (expression -> INT .)
+    EXP             reduce using rule 17 (expression -> INT .)
+    FACTORIAL       reduce using rule 17 (expression -> INT .)
+    PI              reduce using rule 17 (expression -> INT .)
+    $end            reduce using rule 17 (expression -> INT .)
+    CLOSE           reduce using rule 17 (expression -> INT .)
+
+
+state 11
+
+    (18) expression -> FLOAT .
+
+    MULTIPLY        reduce using rule 18 (expression -> FLOAT .)
+    DIVIDE          reduce using rule 18 (expression -> FLOAT .)
+    PLUS            reduce using rule 18 (expression -> FLOAT .)
+    MINUS           reduce using rule 18 (expression -> FLOAT .)
+    EXP             reduce using rule 18 (expression -> FLOAT .)
+    FACTORIAL       reduce using rule 18 (expression -> FLOAT .)
+    PI              reduce using rule 18 (expression -> FLOAT .)
+    $end            reduce using rule 18 (expression -> FLOAT .)
+    CLOSE           reduce using rule 18 (expression -> FLOAT .)
+
+
+state 12
+
+    (3) expression -> expression MULTIPLY . expression
+    (3) expression -> . expression MULTIPLY expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression PLUS expression
+    (6) expression -> . expression MINUS expression
+    (7) expression -> . expression EXP expression
+    (8) expression -> . expression FACTORIAL
+    (9) expression -> . expression PI
+    (10) expression -> . SIN OPEN expression CLOSE
+    (11) expression -> . COS OPEN expression CLOSE
+    (12) expression -> . TAN OPEN expression CLOSE
+    (13) expression -> . LOG OPEN expression CLOSE
+    (14) expression -> . SQUARE OPEN expression CLOSE
+    (15) expression -> . EULER OPEN expression CLOSE
+    (16) expression -> . LOG NATURAL OPEN expression CLOSE
+    (17) expression -> . INT
+    (18) expression -> . FLOAT
+
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    SQUARE          shift and go to state 8
+    EULER           shift and go to state 9
+    INT             shift and go to state 10
+    FLOAT           shift and go to state 11
+
+    expression                     shift and go to state 26
+
+state 13
+
+    (4) expression -> expression DIVIDE . expression
+    (3) expression -> . expression MULTIPLY expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression PLUS expression
+    (6) expression -> . expression MINUS expression
+    (7) expression -> . expression EXP expression
+    (8) expression -> . expression FACTORIAL
+    (9) expression -> . expression PI
+    (10) expression -> . SIN OPEN expression CLOSE
+    (11) expression -> . COS OPEN expression CLOSE
+    (12) expression -> . TAN OPEN expression CLOSE
+    (13) expression -> . LOG OPEN expression CLOSE
+    (14) expression -> . SQUARE OPEN expression CLOSE
+    (15) expression -> . EULER OPEN expression CLOSE
+    (16) expression -> . LOG NATURAL OPEN expression CLOSE
+    (17) expression -> . INT
+    (18) expression -> . FLOAT
+
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    SQUARE          shift and go to state 8
+    EULER           shift and go to state 9
+    INT             shift and go to state 10
+    FLOAT           shift and go to state 11
+
+    expression                     shift and go to state 27
+
+state 14
+
+    (5) expression -> expression PLUS . expression
+    (3) expression -> . expression MULTIPLY expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression PLUS expression
+    (6) expression -> . expression MINUS expression
+    (7) expression -> . expression EXP expression
+    (8) expression -> . expression FACTORIAL
+    (9) expression -> . expression PI
+    (10) expression -> . SIN OPEN expression CLOSE
+    (11) expression -> . COS OPEN expression CLOSE
+    (12) expression -> . TAN OPEN expression CLOSE
+    (13) expression -> . LOG OPEN expression CLOSE
+    (14) expression -> . SQUARE OPEN expression CLOSE
+    (15) expression -> . EULER OPEN expression CLOSE
+    (16) expression -> . LOG NATURAL OPEN expression CLOSE
+    (17) expression -> . INT
+    (18) expression -> . FLOAT
+
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    SQUARE          shift and go to state 8
+    EULER           shift and go to state 9
+    INT             shift and go to state 10
+    FLOAT           shift and go to state 11
+
+    expression                     shift and go to state 28
+
+state 15
+
+    (6) expression -> expression MINUS . expression
+    (3) expression -> . expression MULTIPLY expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression PLUS expression
+    (6) expression -> . expression MINUS expression
+    (7) expression -> . expression EXP expression
+    (8) expression -> . expression FACTORIAL
+    (9) expression -> . expression PI
+    (10) expression -> . SIN OPEN expression CLOSE
+    (11) expression -> . COS OPEN expression CLOSE
+    (12) expression -> . TAN OPEN expression CLOSE
+    (13) expression -> . LOG OPEN expression CLOSE
+    (14) expression -> . SQUARE OPEN expression CLOSE
+    (15) expression -> . EULER OPEN expression CLOSE
+    (16) expression -> . LOG NATURAL OPEN expression CLOSE
+    (17) expression -> . INT
+    (18) expression -> . FLOAT
+
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    SQUARE          shift and go to state 8
+    EULER           shift and go to state 9
+    INT             shift and go to state 10
+    FLOAT           shift and go to state 11
+
+    expression                     shift and go to state 29
+
+state 16
+
+    (7) expression -> expression EXP . expression
+    (3) expression -> . expression MULTIPLY expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression PLUS expression
+    (6) expression -> . expression MINUS expression
+    (7) expression -> . expression EXP expression
+    (8) expression -> . expression FACTORIAL
+    (9) expression -> . expression PI
+    (10) expression -> . SIN OPEN expression CLOSE
+    (11) expression -> . COS OPEN expression CLOSE
+    (12) expression -> . TAN OPEN expression CLOSE
+    (13) expression -> . LOG OPEN expression CLOSE
+    (14) expression -> . SQUARE OPEN expression CLOSE
+    (15) expression -> . EULER OPEN expression CLOSE
+    (16) expression -> . LOG NATURAL OPEN expression CLOSE
+    (17) expression -> . INT
+    (18) expression -> . FLOAT
+
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    SQUARE          shift and go to state 8
+    EULER           shift and go to state 9
+    INT             shift and go to state 10
+    FLOAT           shift and go to state 11
+
+    expression                     shift and go to state 30
+
+state 17
+
+    (8) expression -> expression FACTORIAL .
+
+    MULTIPLY        reduce using rule 8 (expression -> expression FACTORIAL .)
+    DIVIDE          reduce using rule 8 (expression -> expression FACTORIAL .)
+    PLUS            reduce using rule 8 (expression -> expression FACTORIAL .)
+    MINUS           reduce using rule 8 (expression -> expression FACTORIAL .)
+    EXP             reduce using rule 8 (expression -> expression FACTORIAL .)
+    FACTORIAL       reduce using rule 8 (expression -> expression FACTORIAL .)
+    PI              reduce using rule 8 (expression -> expression FACTORIAL .)
+    $end            reduce using rule 8 (expression -> expression FACTORIAL .)
+    CLOSE           reduce using rule 8 (expression -> expression FACTORIAL .)
+
+
+state 18
+
+    (9) expression -> expression PI .
+
+    MULTIPLY        reduce using rule 9 (expression -> expression PI .)
+    DIVIDE          reduce using rule 9 (expression -> expression PI .)
+    PLUS            reduce using rule 9 (expression -> expression PI .)
+    MINUS           reduce using rule 9 (expression -> expression PI .)
+    EXP             reduce using rule 9 (expression -> expression PI .)
+    FACTORIAL       reduce using rule 9 (expression -> expression PI .)
+    PI              reduce using rule 9 (expression -> expression PI .)
+    $end            reduce using rule 9 (expression -> expression PI .)
+    CLOSE           reduce using rule 9 (expression -> expression PI .)
+
+
+state 19
+
+    (10) expression -> SIN OPEN . expression CLOSE
+    (3) expression -> . expression MULTIPLY expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression PLUS expression
+    (6) expression -> . expression MINUS expression
+    (7) expression -> . expression EXP expression
+    (8) expression -> . expression FACTORIAL
+    (9) expression -> . expression PI
+    (10) expression -> . SIN OPEN expression CLOSE
+    (11) expression -> . COS OPEN expression CLOSE
+    (12) expression -> . TAN OPEN expression CLOSE
+    (13) expression -> . LOG OPEN expression CLOSE
+    (14) expression -> . SQUARE OPEN expression CLOSE
+    (15) expression -> . EULER OPEN expression CLOSE
+    (16) expression -> . LOG NATURAL OPEN expression CLOSE
+    (17) expression -> . INT
+    (18) expression -> . FLOAT
+
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    SQUARE          shift and go to state 8
+    EULER           shift and go to state 9
+    INT             shift and go to state 10
+    FLOAT           shift and go to state 11
+
+    expression                     shift and go to state 31
+
+state 20
+
+    (11) expression -> COS OPEN . expression CLOSE
+    (3) expression -> . expression MULTIPLY expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression PLUS expression
+    (6) expression -> . expression MINUS expression
+    (7) expression -> . expression EXP expression
+    (8) expression -> . expression FACTORIAL
+    (9) expression -> . expression PI
+    (10) expression -> . SIN OPEN expression CLOSE
+    (11) expression -> . COS OPEN expression CLOSE
+    (12) expression -> . TAN OPEN expression CLOSE
+    (13) expression -> . LOG OPEN expression CLOSE
+    (14) expression -> . SQUARE OPEN expression CLOSE
+    (15) expression -> . EULER OPEN expression CLOSE
+    (16) expression -> . LOG NATURAL OPEN expression CLOSE
+    (17) expression -> . INT
+    (18) expression -> . FLOAT
+
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    SQUARE          shift and go to state 8
+    EULER           shift and go to state 9
+    INT             shift and go to state 10
+    FLOAT           shift and go to state 11
+
+    expression                     shift and go to state 32
+
+state 21
+
+    (12) expression -> TAN OPEN . expression CLOSE
+    (3) expression -> . expression MULTIPLY expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression PLUS expression
+    (6) expression -> . expression MINUS expression
+    (7) expression -> . expression EXP expression
+    (8) expression -> . expression FACTORIAL
+    (9) expression -> . expression PI
+    (10) expression -> . SIN OPEN expression CLOSE
+    (11) expression -> . COS OPEN expression CLOSE
+    (12) expression -> . TAN OPEN expression CLOSE
+    (13) expression -> . LOG OPEN expression CLOSE
+    (14) expression -> . SQUARE OPEN expression CLOSE
+    (15) expression -> . EULER OPEN expression CLOSE
+    (16) expression -> . LOG NATURAL OPEN expression CLOSE
+    (17) expression -> . INT
+    (18) expression -> . FLOAT
+
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    SQUARE          shift and go to state 8
+    EULER           shift and go to state 9
+    INT             shift and go to state 10
+    FLOAT           shift and go to state 11
+
+    expression                     shift and go to state 33
+
+state 22
+
+    (13) expression -> LOG OPEN . expression CLOSE
+    (3) expression -> . expression MULTIPLY expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression PLUS expression
+    (6) expression -> . expression MINUS expression
+    (7) expression -> . expression EXP expression
+    (8) expression -> . expression FACTORIAL
+    (9) expression -> . expression PI
+    (10) expression -> . SIN OPEN expression CLOSE
+    (11) expression -> . COS OPEN expression CLOSE
+    (12) expression -> . TAN OPEN expression CLOSE
+    (13) expression -> . LOG OPEN expression CLOSE
+    (14) expression -> . SQUARE OPEN expression CLOSE
+    (15) expression -> . EULER OPEN expression CLOSE
+    (16) expression -> . LOG NATURAL OPEN expression CLOSE
+    (17) expression -> . INT
+    (18) expression -> . FLOAT
+
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    SQUARE          shift and go to state 8
+    EULER           shift and go to state 9
+    INT             shift and go to state 10
+    FLOAT           shift and go to state 11
+
+    expression                     shift and go to state 34
+
+state 23
+
+    (16) expression -> LOG NATURAL . OPEN expression CLOSE
+
+    OPEN            shift and go to state 35
+
+
+state 24
+
+    (14) expression -> SQUARE OPEN . expression CLOSE
+    (3) expression -> . expression MULTIPLY expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression PLUS expression
+    (6) expression -> . expression MINUS expression
+    (7) expression -> . expression EXP expression
+    (8) expression -> . expression FACTORIAL
+    (9) expression -> . expression PI
+    (10) expression -> . SIN OPEN expression CLOSE
+    (11) expression -> . COS OPEN expression CLOSE
+    (12) expression -> . TAN OPEN expression CLOSE
+    (13) expression -> . LOG OPEN expression CLOSE
+    (14) expression -> . SQUARE OPEN expression CLOSE
+    (15) expression -> . EULER OPEN expression CLOSE
+    (16) expression -> . LOG NATURAL OPEN expression CLOSE
+    (17) expression -> . INT
+    (18) expression -> . FLOAT
+
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    SQUARE          shift and go to state 8
+    EULER           shift and go to state 9
+    INT             shift and go to state 10
+    FLOAT           shift and go to state 11
+
+    expression                     shift and go to state 36
+
+state 25
+
+    (15) expression -> EULER OPEN . expression CLOSE
+    (3) expression -> . expression MULTIPLY expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression PLUS expression
+    (6) expression -> . expression MINUS expression
+    (7) expression -> . expression EXP expression
+    (8) expression -> . expression FACTORIAL
+    (9) expression -> . expression PI
+    (10) expression -> . SIN OPEN expression CLOSE
+    (11) expression -> . COS OPEN expression CLOSE
+    (12) expression -> . TAN OPEN expression CLOSE
+    (13) expression -> . LOG OPEN expression CLOSE
+    (14) expression -> . SQUARE OPEN expression CLOSE
+    (15) expression -> . EULER OPEN expression CLOSE
+    (16) expression -> . LOG NATURAL OPEN expression CLOSE
+    (17) expression -> . INT
+    (18) expression -> . FLOAT
+
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    SQUARE          shift and go to state 8
+    EULER           shift and go to state 9
+    INT             shift and go to state 10
+    FLOAT           shift and go to state 11
+
+    expression                     shift and go to state 37
+
+state 26
+
+    (3) expression -> expression MULTIPLY expression .
+    (3) expression -> expression . MULTIPLY expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . PLUS expression
+    (6) expression -> expression . MINUS expression
+    (7) expression -> expression . EXP expression
+    (8) expression -> expression . FACTORIAL
+    (9) expression -> expression . PI
+
+  ! shift/reduce conflict for MULTIPLY resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for EXP resolved as shift
+  ! shift/reduce conflict for FACTORIAL resolved as shift
+  ! shift/reduce conflict for PI resolved as shift
+    $end            reduce using rule 3 (expression -> expression MULTIPLY expression .)
+    CLOSE           reduce using rule 3 (expression -> expression MULTIPLY expression .)
+    MULTIPLY        shift and go to state 12
+    DIVIDE          shift and go to state 13
+    PLUS            shift and go to state 14
+    MINUS           shift and go to state 15
+    EXP             shift and go to state 16
+    FACTORIAL       shift and go to state 17
+    PI              shift and go to state 18
+
+  ! MULTIPLY        [ reduce using rule 3 (expression -> expression MULTIPLY expression .) ]
+  ! DIVIDE          [ reduce using rule 3 (expression -> expression MULTIPLY expression .) ]
+  ! PLUS            [ reduce using rule 3 (expression -> expression MULTIPLY expression .) ]
+  ! MINUS           [ reduce using rule 3 (expression -> expression MULTIPLY expression .) ]
+  ! EXP             [ reduce using rule 3 (expression -> expression MULTIPLY expression .) ]
+  ! FACTORIAL       [ reduce using rule 3 (expression -> expression MULTIPLY expression .) ]
+  ! PI              [ reduce using rule 3 (expression -> expression MULTIPLY expression .) ]
+
+
+state 27
+
+    (4) expression -> expression DIVIDE expression .
+    (3) expression -> expression . MULTIPLY expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . PLUS expression
+    (6) expression -> expression . MINUS expression
+    (7) expression -> expression . EXP expression
+    (8) expression -> expression . FACTORIAL
+    (9) expression -> expression . PI
+
+  ! shift/reduce conflict for MULTIPLY resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for EXP resolved as shift
+  ! shift/reduce conflict for FACTORIAL resolved as shift
+  ! shift/reduce conflict for PI resolved as shift
+    $end            reduce using rule 4 (expression -> expression DIVIDE expression .)
+    CLOSE           reduce using rule 4 (expression -> expression DIVIDE expression .)
+    MULTIPLY        shift and go to state 12
+    DIVIDE          shift and go to state 13
+    PLUS            shift and go to state 14
+    MINUS           shift and go to state 15
+    EXP             shift and go to state 16
+    FACTORIAL       shift and go to state 17
+    PI              shift and go to state 18
+
+  ! MULTIPLY        [ reduce using rule 4 (expression -> expression DIVIDE expression .) ]
+  ! DIVIDE          [ reduce using rule 4 (expression -> expression DIVIDE expression .) ]
+  ! PLUS            [ reduce using rule 4 (expression -> expression DIVIDE expression .) ]
+  ! MINUS           [ reduce using rule 4 (expression -> expression DIVIDE expression .) ]
+  ! EXP             [ reduce using rule 4 (expression -> expression DIVIDE expression .) ]
+  ! FACTORIAL       [ reduce using rule 4 (expression -> expression DIVIDE expression .) ]
+  ! PI              [ reduce using rule 4 (expression -> expression DIVIDE expression .) ]
+
+
+state 28
+
+    (5) expression -> expression PLUS expression .
+    (3) expression -> expression . MULTIPLY expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . PLUS expression
+    (6) expression -> expression . MINUS expression
+    (7) expression -> expression . EXP expression
+    (8) expression -> expression . FACTORIAL
+    (9) expression -> expression . PI
+
+  ! shift/reduce conflict for MULTIPLY resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for EXP resolved as shift
+  ! shift/reduce conflict for FACTORIAL resolved as shift
+  ! shift/reduce conflict for PI resolved as shift
+    $end            reduce using rule 5 (expression -> expression PLUS expression .)
+    CLOSE           reduce using rule 5 (expression -> expression PLUS expression .)
+    MULTIPLY        shift and go to state 12
+    DIVIDE          shift and go to state 13
+    PLUS            shift and go to state 14
+    MINUS           shift and go to state 15
+    EXP             shift and go to state 16
+    FACTORIAL       shift and go to state 17
+    PI              shift and go to state 18
+
+  ! MULTIPLY        [ reduce using rule 5 (expression -> expression PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 5 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ reduce using rule 5 (expression -> expression PLUS expression .) ]
+  ! MINUS           [ reduce using rule 5 (expression -> expression PLUS expression .) ]
+  ! EXP             [ reduce using rule 5 (expression -> expression PLUS expression .) ]
+  ! FACTORIAL       [ reduce using rule 5 (expression -> expression PLUS expression .) ]
+  ! PI              [ reduce using rule 5 (expression -> expression PLUS expression .) ]
+
+
+state 29
+
+    (6) expression -> expression MINUS expression .
+    (3) expression -> expression . MULTIPLY expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . PLUS expression
+    (6) expression -> expression . MINUS expression
+    (7) expression -> expression . EXP expression
+    (8) expression -> expression . FACTORIAL
+    (9) expression -> expression . PI
+
+  ! shift/reduce conflict for MULTIPLY resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for EXP resolved as shift
+  ! shift/reduce conflict for FACTORIAL resolved as shift
+  ! shift/reduce conflict for PI resolved as shift
+    $end            reduce using rule 6 (expression -> expression MINUS expression .)
+    CLOSE           reduce using rule 6 (expression -> expression MINUS expression .)
+    MULTIPLY        shift and go to state 12
+    DIVIDE          shift and go to state 13
+    PLUS            shift and go to state 14
+    MINUS           shift and go to state 15
+    EXP             shift and go to state 16
+    FACTORIAL       shift and go to state 17
+    PI              shift and go to state 18
+
+  ! MULTIPLY        [ reduce using rule 6 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 6 (expression -> expression MINUS expression .) ]
+  ! PLUS            [ reduce using rule 6 (expression -> expression MINUS expression .) ]
+  ! MINUS           [ reduce using rule 6 (expression -> expression MINUS expression .) ]
+  ! EXP             [ reduce using rule 6 (expression -> expression MINUS expression .) ]
+  ! FACTORIAL       [ reduce using rule 6 (expression -> expression MINUS expression .) ]
+  ! PI              [ reduce using rule 6 (expression -> expression MINUS expression .) ]
+
+
+state 30
+
+    (7) expression -> expression EXP expression .
+    (3) expression -> expression . MULTIPLY expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . PLUS expression
+    (6) expression -> expression . MINUS expression
+    (7) expression -> expression . EXP expression
+    (8) expression -> expression . FACTORIAL
+    (9) expression -> expression . PI
+
+  ! shift/reduce conflict for MULTIPLY resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for EXP resolved as shift
+  ! shift/reduce conflict for FACTORIAL resolved as shift
+  ! shift/reduce conflict for PI resolved as shift
+    $end            reduce using rule 7 (expression -> expression EXP expression .)
+    CLOSE           reduce using rule 7 (expression -> expression EXP expression .)
+    MULTIPLY        shift and go to state 12
+    DIVIDE          shift and go to state 13
+    PLUS            shift and go to state 14
+    MINUS           shift and go to state 15
+    EXP             shift and go to state 16
+    FACTORIAL       shift and go to state 17
+    PI              shift and go to state 18
+
+  ! MULTIPLY        [ reduce using rule 7 (expression -> expression EXP expression .) ]
+  ! DIVIDE          [ reduce using rule 7 (expression -> expression EXP expression .) ]
+  ! PLUS            [ reduce using rule 7 (expression -> expression EXP expression .) ]
+  ! MINUS           [ reduce using rule 7 (expression -> expression EXP expression .) ]
+  ! EXP             [ reduce using rule 7 (expression -> expression EXP expression .) ]
+  ! FACTORIAL       [ reduce using rule 7 (expression -> expression EXP expression .) ]
+  ! PI              [ reduce using rule 7 (expression -> expression EXP expression .) ]
+
+
+state 31
+
+    (10) expression -> SIN OPEN expression . CLOSE
+    (3) expression -> expression . MULTIPLY expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . PLUS expression
+    (6) expression -> expression . MINUS expression
+    (7) expression -> expression . EXP expression
+    (8) expression -> expression . FACTORIAL
+    (9) expression -> expression . PI
+
+    CLOSE           shift and go to state 38
+    MULTIPLY        shift and go to state 12
+    DIVIDE          shift and go to state 13
+    PLUS            shift and go to state 14
+    MINUS           shift and go to state 15
+    EXP             shift and go to state 16
+    FACTORIAL       shift and go to state 17
+    PI              shift and go to state 18
+
+
+state 32
+
+    (11) expression -> COS OPEN expression . CLOSE
+    (3) expression -> expression . MULTIPLY expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . PLUS expression
+    (6) expression -> expression . MINUS expression
+    (7) expression -> expression . EXP expression
+    (8) expression -> expression . FACTORIAL
+    (9) expression -> expression . PI
+
+    CLOSE           shift and go to state 39
+    MULTIPLY        shift and go to state 12
+    DIVIDE          shift and go to state 13
+    PLUS            shift and go to state 14
+    MINUS           shift and go to state 15
+    EXP             shift and go to state 16
+    FACTORIAL       shift and go to state 17
+    PI              shift and go to state 18
+
+
+state 33
+
+    (12) expression -> TAN OPEN expression . CLOSE
+    (3) expression -> expression . MULTIPLY expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . PLUS expression
+    (6) expression -> expression . MINUS expression
+    (7) expression -> expression . EXP expression
+    (8) expression -> expression . FACTORIAL
+    (9) expression -> expression . PI
+
+    CLOSE           shift and go to state 40
+    MULTIPLY        shift and go to state 12
+    DIVIDE          shift and go to state 13
+    PLUS            shift and go to state 14
+    MINUS           shift and go to state 15
+    EXP             shift and go to state 16
+    FACTORIAL       shift and go to state 17
+    PI              shift and go to state 18
+
+
+state 34
+
+    (13) expression -> LOG OPEN expression . CLOSE
+    (3) expression -> expression . MULTIPLY expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . PLUS expression
+    (6) expression -> expression . MINUS expression
+    (7) expression -> expression . EXP expression
+    (8) expression -> expression . FACTORIAL
+    (9) expression -> expression . PI
+
+    CLOSE           shift and go to state 41
+    MULTIPLY        shift and go to state 12
+    DIVIDE          shift and go to state 13
+    PLUS            shift and go to state 14
+    MINUS           shift and go to state 15
+    EXP             shift and go to state 16
+    FACTORIAL       shift and go to state 17
+    PI              shift and go to state 18
+
+
+state 35
+
+    (16) expression -> LOG NATURAL OPEN . expression CLOSE
+    (3) expression -> . expression MULTIPLY expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression PLUS expression
+    (6) expression -> . expression MINUS expression
+    (7) expression -> . expression EXP expression
+    (8) expression -> . expression FACTORIAL
+    (9) expression -> . expression PI
+    (10) expression -> . SIN OPEN expression CLOSE
+    (11) expression -> . COS OPEN expression CLOSE
+    (12) expression -> . TAN OPEN expression CLOSE
+    (13) expression -> . LOG OPEN expression CLOSE
+    (14) expression -> . SQUARE OPEN expression CLOSE
+    (15) expression -> . EULER OPEN expression CLOSE
+    (16) expression -> . LOG NATURAL OPEN expression CLOSE
+    (17) expression -> . INT
+    (18) expression -> . FLOAT
+
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    SQUARE          shift and go to state 8
+    EULER           shift and go to state 9
+    INT             shift and go to state 10
+    FLOAT           shift and go to state 11
+
+    expression                     shift and go to state 42
+
+state 36
+
+    (14) expression -> SQUARE OPEN expression . CLOSE
+    (3) expression -> expression . MULTIPLY expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . PLUS expression
+    (6) expression -> expression . MINUS expression
+    (7) expression -> expression . EXP expression
+    (8) expression -> expression . FACTORIAL
+    (9) expression -> expression . PI
+
+    CLOSE           shift and go to state 43
+    MULTIPLY        shift and go to state 12
+    DIVIDE          shift and go to state 13
+    PLUS            shift and go to state 14
+    MINUS           shift and go to state 15
+    EXP             shift and go to state 16
+    FACTORIAL       shift and go to state 17
+    PI              shift and go to state 18
+
+
+state 37
+
+    (15) expression -> EULER OPEN expression . CLOSE
+    (3) expression -> expression . MULTIPLY expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . PLUS expression
+    (6) expression -> expression . MINUS expression
+    (7) expression -> expression . EXP expression
+    (8) expression -> expression . FACTORIAL
+    (9) expression -> expression . PI
+
+    CLOSE           shift and go to state 44
+    MULTIPLY        shift and go to state 12
+    DIVIDE          shift and go to state 13
+    PLUS            shift and go to state 14
+    MINUS           shift and go to state 15
+    EXP             shift and go to state 16
+    FACTORIAL       shift and go to state 17
+    PI              shift and go to state 18
+
+
+state 38
+
+    (10) expression -> SIN OPEN expression CLOSE .
+
+    MULTIPLY        reduce using rule 10 (expression -> SIN OPEN expression CLOSE .)
+    DIVIDE          reduce using rule 10 (expression -> SIN OPEN expression CLOSE .)
+    PLUS            reduce using rule 10 (expression -> SIN OPEN expression CLOSE .)
+    MINUS           reduce using rule 10 (expression -> SIN OPEN expression CLOSE .)
+    EXP             reduce using rule 10 (expression -> SIN OPEN expression CLOSE .)
+    FACTORIAL       reduce using rule 10 (expression -> SIN OPEN expression CLOSE .)
+    PI              reduce using rule 10 (expression -> SIN OPEN expression CLOSE .)
+    $end            reduce using rule 10 (expression -> SIN OPEN expression CLOSE .)
+    CLOSE           reduce using rule 10 (expression -> SIN OPEN expression CLOSE .)
+
+
+state 39
+
+    (11) expression -> COS OPEN expression CLOSE .
+
+    MULTIPLY        reduce using rule 11 (expression -> COS OPEN expression CLOSE .)
+    DIVIDE          reduce using rule 11 (expression -> COS OPEN expression CLOSE .)
+    PLUS            reduce using rule 11 (expression -> COS OPEN expression CLOSE .)
+    MINUS           reduce using rule 11 (expression -> COS OPEN expression CLOSE .)
+    EXP             reduce using rule 11 (expression -> COS OPEN expression CLOSE .)
+    FACTORIAL       reduce using rule 11 (expression -> COS OPEN expression CLOSE .)
+    PI              reduce using rule 11 (expression -> COS OPEN expression CLOSE .)
+    $end            reduce using rule 11 (expression -> COS OPEN expression CLOSE .)
+    CLOSE           reduce using rule 11 (expression -> COS OPEN expression CLOSE .)
+
+
+state 40
+
+    (12) expression -> TAN OPEN expression CLOSE .
+
+    MULTIPLY        reduce using rule 12 (expression -> TAN OPEN expression CLOSE .)
+    DIVIDE          reduce using rule 12 (expression -> TAN OPEN expression CLOSE .)
+    PLUS            reduce using rule 12 (expression -> TAN OPEN expression CLOSE .)
+    MINUS           reduce using rule 12 (expression -> TAN OPEN expression CLOSE .)
+    EXP             reduce using rule 12 (expression -> TAN OPEN expression CLOSE .)
+    FACTORIAL       reduce using rule 12 (expression -> TAN OPEN expression CLOSE .)
+    PI              reduce using rule 12 (expression -> TAN OPEN expression CLOSE .)
+    $end            reduce using rule 12 (expression -> TAN OPEN expression CLOSE .)
+    CLOSE           reduce using rule 12 (expression -> TAN OPEN expression CLOSE .)
+
+
+state 41
+
+    (13) expression -> LOG OPEN expression CLOSE .
+
+    MULTIPLY        reduce using rule 13 (expression -> LOG OPEN expression CLOSE .)
+    DIVIDE          reduce using rule 13 (expression -> LOG OPEN expression CLOSE .)
+    PLUS            reduce using rule 13 (expression -> LOG OPEN expression CLOSE .)
+    MINUS           reduce using rule 13 (expression -> LOG OPEN expression CLOSE .)
+    EXP             reduce using rule 13 (expression -> LOG OPEN expression CLOSE .)
+    FACTORIAL       reduce using rule 13 (expression -> LOG OPEN expression CLOSE .)
+    PI              reduce using rule 13 (expression -> LOG OPEN expression CLOSE .)
+    $end            reduce using rule 13 (expression -> LOG OPEN expression CLOSE .)
+    CLOSE           reduce using rule 13 (expression -> LOG OPEN expression CLOSE .)
+
+
+state 42
+
+    (16) expression -> LOG NATURAL OPEN expression . CLOSE
+    (3) expression -> expression . MULTIPLY expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . PLUS expression
+    (6) expression -> expression . MINUS expression
+    (7) expression -> expression . EXP expression
+    (8) expression -> expression . FACTORIAL
+    (9) expression -> expression . PI
+
+    CLOSE           shift and go to state 45
+    MULTIPLY        shift and go to state 12
+    DIVIDE          shift and go to state 13
+    PLUS            shift and go to state 14
+    MINUS           shift and go to state 15
+    EXP             shift and go to state 16
+    FACTORIAL       shift and go to state 17
+    PI              shift and go to state 18
+
+
+state 43
+
+    (14) expression -> SQUARE OPEN expression CLOSE .
+
+    MULTIPLY        reduce using rule 14 (expression -> SQUARE OPEN expression CLOSE .)
+    DIVIDE          reduce using rule 14 (expression -> SQUARE OPEN expression CLOSE .)
+    PLUS            reduce using rule 14 (expression -> SQUARE OPEN expression CLOSE .)
+    MINUS           reduce using rule 14 (expression -> SQUARE OPEN expression CLOSE .)
+    EXP             reduce using rule 14 (expression -> SQUARE OPEN expression CLOSE .)
+    FACTORIAL       reduce using rule 14 (expression -> SQUARE OPEN expression CLOSE .)
+    PI              reduce using rule 14 (expression -> SQUARE OPEN expression CLOSE .)
+    $end            reduce using rule 14 (expression -> SQUARE OPEN expression CLOSE .)
+    CLOSE           reduce using rule 14 (expression -> SQUARE OPEN expression CLOSE .)
+
+
+state 44
+
+    (15) expression -> EULER OPEN expression CLOSE .
+
+    MULTIPLY        reduce using rule 15 (expression -> EULER OPEN expression CLOSE .)
+    DIVIDE          reduce using rule 15 (expression -> EULER OPEN expression CLOSE .)
+    PLUS            reduce using rule 15 (expression -> EULER OPEN expression CLOSE .)
+    MINUS           reduce using rule 15 (expression -> EULER OPEN expression CLOSE .)
+    EXP             reduce using rule 15 (expression -> EULER OPEN expression CLOSE .)
+    FACTORIAL       reduce using rule 15 (expression -> EULER OPEN expression CLOSE .)
+    PI              reduce using rule 15 (expression -> EULER OPEN expression CLOSE .)
+    $end            reduce using rule 15 (expression -> EULER OPEN expression CLOSE .)
+    CLOSE           reduce using rule 15 (expression -> EULER OPEN expression CLOSE .)
+
+
+state 45
+
+    (16) expression -> LOG NATURAL OPEN expression CLOSE .
+
+    MULTIPLY        reduce using rule 16 (expression -> LOG NATURAL OPEN expression CLOSE .)
+    DIVIDE          reduce using rule 16 (expression -> LOG NATURAL OPEN expression CLOSE .)
+    PLUS            reduce using rule 16 (expression -> LOG NATURAL OPEN expression CLOSE .)
+    MINUS           reduce using rule 16 (expression -> LOG NATURAL OPEN expression CLOSE .)
+    EXP             reduce using rule 16 (expression -> LOG NATURAL OPEN expression CLOSE .)
+    FACTORIAL       reduce using rule 16 (expression -> LOG NATURAL OPEN expression CLOSE .)
+    PI              reduce using rule 16 (expression -> LOG NATURAL OPEN expression CLOSE .)
+    $end            reduce using rule 16 (expression -> LOG NATURAL OPEN expression CLOSE .)
+    CLOSE           reduce using rule 16 (expression -> LOG NATURAL OPEN expression CLOSE .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for MULTIPLY in state 26 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 26 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 26 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 26 resolved as shift
+WARNING: shift/reduce conflict for EXP in state 26 resolved as shift
+WARNING: shift/reduce conflict for FACTORIAL in state 26 resolved as shift
+WARNING: shift/reduce conflict for PI in state 26 resolved as shift
+WARNING: shift/reduce conflict for MULTIPLY in state 27 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 27 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 27 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 27 resolved as shift
+WARNING: shift/reduce conflict for EXP in state 27 resolved as shift
+WARNING: shift/reduce conflict for FACTORIAL in state 27 resolved as shift
+WARNING: shift/reduce conflict for PI in state 27 resolved as shift
+WARNING: shift/reduce conflict for MULTIPLY in state 28 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 28 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 28 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 28 resolved as shift
+WARNING: shift/reduce conflict for EXP in state 28 resolved as shift
+WARNING: shift/reduce conflict for FACTORIAL in state 28 resolved as shift
+WARNING: shift/reduce conflict for PI in state 28 resolved as shift
+WARNING: shift/reduce conflict for MULTIPLY in state 29 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 29 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 29 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 29 resolved as shift
+WARNING: shift/reduce conflict for EXP in state 29 resolved as shift
+WARNING: shift/reduce conflict for FACTORIAL in state 29 resolved as shift
+WARNING: shift/reduce conflict for PI in state 29 resolved as shift
+WARNING: shift/reduce conflict for MULTIPLY in state 30 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 30 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 30 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 30 resolved as shift
+WARNING: shift/reduce conflict for EXP in state 30 resolved as shift
+WARNING: shift/reduce conflict for FACTORIAL in state 30 resolved as shift
+WARNING: shift/reduce conflict for PI in state 30 resolved as shift

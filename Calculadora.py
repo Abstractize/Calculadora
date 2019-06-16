@@ -131,10 +131,10 @@ def p_expression_s_r_m_d(p):
     '''
     p[0] = (p[2], p[1], p[3])
 
-def p_expresion_fact_pi(p):
+def p_expression_fact_pi(p):
     '''
     expression : expression FACTORIAL
-               | expresssion PI
+               | expression PI
     '''
     p[0] = (p[1], p[2])
 
@@ -142,9 +142,9 @@ def p_expresion_fact_pi(p):
 def p_expression_trigonometria_log_exp_sqrt(p):
     '''
     expression : SIN OPEN expression CLOSE
-               | COS OPEN expresion CLOSE
+               | COS OPEN expression CLOSE
                | TAN OPEN expression CLOSE
-               | LOG OPEN expresion CLOSE
+               | LOG OPEN expression CLOSE
                | SQUARE OPEN expression CLOSE
                | EULER OPEN expression CLOSE
                
@@ -157,7 +157,12 @@ def p_expression_log_natural(p):
     '''
     p[0] = (p[1],p[2],p[4])
 
-
+def p_expression_int_float(p):
+     '''
+     expression : INT
+                | FLOAT
+     '''
+     p[0] = p[1]
 
 def p_empty(p):
     
