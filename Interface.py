@@ -67,13 +67,13 @@ BotonResul=Button(ventana,text="=",bg=color_boton,width=ancho_boton,height=alto_
 BotonSin=Button(ventana,text="sin()",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("sin")).place(x=17,y=540)
 #Coseno
 BotonCos=Button(ventana,text="cos()",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("cos")).place(x=107,y=540)
-BotonCos=Button(ventana,text="tan()",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("tan")).place(x=197,y=540)
+BotonTan=Button(ventana,text="tan()",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("tan")).place(x=197,y=540)
 #LogN
-BotonTan=Button(ventana,text="Ln()",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("logn")).place(x=287,y=540)
+BotonLogN=Button(ventana,text="Ln()",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("logn")).place(x=287,y=540)
 #Factorial
-BotonTan=Button(ventana,text="!",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("!")).place(x=17,y=600)
-BotonTan=Button(ventana,text="e",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("e")).place(x=107,y=600)
-
+BotonFact=Button(ventana,text="!",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("!")).place(x=17,y=600)
+BotonE=Button(ventana,text="e",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("e")).place(x=107,y=600)
+BotonUp=Button(ventana,text="^",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("^")).place(x=197,y=600)
 
 
 Salida=Entry(ventana,font=('arial',20,'bold'),width=22,textvariable=input_text,bd=20,insertwidth=4,bg="powder blue",justify="right").place(x=10,y=60)

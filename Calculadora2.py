@@ -135,7 +135,7 @@ def p_calc(p):
     calc : expression
          | empty
     '''
-    print(p[1])
+    
     p[0] = run(p[1])
     
     
@@ -199,6 +199,8 @@ def p_expression_int_float(p):
      '''
      expression : INT
                 | FLOAT
+                | PI
+                | EULER
      '''
      p[0] = p[1]
 
@@ -217,36 +219,40 @@ def run(p):
     if type(p) == tuple:
         if p[0] == '+':
             if type(p[1]) == tuple and type(p[2]) == tuple:
-                return run(p[1]) + run(p[2])
+                return float(float(run(p[1])) + float(run(p[2])))
             elif type(p[1]) == tuple:
-                return p[2] + run(p[1])
-            
+                return float(float(p[2]) + float(run(p[1])))
+            elif type(p[2]) == tuple :
+                return float(float(p[1]) + float(run(p[2])))
             else:
                 return p[1] + p[2]
         elif p[0] == '-':
             if type(p[1]) == tuple and type(p[2]) == tuple:
-                return run(p[1]) - run(p[2])
+                return float(float(run(p[1])) - float(run(p[2])))
             elif type(p[1]) == tuple:
-                return p[2] - run(p[1])
-            
+                return float(float(p[2]) - float(run(p[1])))
+            elif type(p[2]) == tuple :
+                return float(float(p[1]) - float(run(p[2])))
             else:
-                return p[1] - p[2]
+                return float(p[1] - float(p[2]))
         elif p[0] == '*':
             if type(p[1]) == tuple and type(p[2]) == tuple:
-                return run(p[1]) * run(p[2])
+                return float(float(run(p[1])) * float(run(p[2])))
             elif type(p[1]) == tuple:
-                return run(p[1]) * p[2]
-            
+                return float(float(run(p[1])) * float(p[2]))
+            elif type(p[2]) == tuple :
+                return float(float(p[1]) * float(run(p[2])))
             else:
                 return p[1] * p[2]
         elif p[0] == '/':
             if type(p[1]) == tuple and type(p[2]) == tuple:
-                return run(p[1]) / run(p[2])
-            elif type(p[1]) == tuple:
-                return run(p[1]) / p[2]
-            
+                return float(float(run(p[1])) / float(run(p[2])))
+            elif type(p[1]) == tuple :
+                return float(float(run(p[1])) / float(p[2]))
+            elif type(p[2]) == tuple :
+                return float(float(p[1]) / float(run(p[2])))
             else:
-                return p[1] / p[2]
+                return float(float(p[1]) / float(p[2]))
         elif p[0] == '!':
             return factorial(p[1])
         elif p[0] == 'sin':
