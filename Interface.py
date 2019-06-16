@@ -49,7 +49,7 @@ Boton6=Button(ventana,text="6",bg=color_boton,width=ancho_boton,height=alto_boto
 Boton7=Button(ventana,text="7",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik(7)).place(x=287,y=240)
 Boton8=Button(ventana,text="8",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik(8)).place(x=17,y=300)
 Boton9=Button(ventana,text="9",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik(9)).place(x=107,y=300)
-BotonC=Button(ventana,text="π",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("*pi")).place(x=197,y=300)
+BotonC=Button(ventana,text="π",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("pi")).place(x=197,y=300)
 BotonComa=Button(ventana,text=",",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik(".")).place(x=287,y=300)
 BotonSuma=Button(ventana,text="+",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("+")).place(x=17,y=360)
 BotonResta=Button(ventana,text="-",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("-")).place(x=107,y=360)
@@ -59,7 +59,7 @@ BotonSqrt=Button(ventana,text="√",bg=color_boton,width=ancho_boton,height=alto
 BotonParen1=Button(ventana,text="(",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("(")).place(x=17,y=480)
 BotonParen2=Button(ventana,text=")",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik(")")).place(x=107,y=480)
 BotonResto=Button(ventana,text="%",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("%")).place(x=197,y=480)
-Botonln=Button(ventana,text="ln",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("log(")).place(x=287,y=480)
+Botonln=Button(ventana,text="ln",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("log")).place(x=287,y=480)
 BotonC=Button(ventana,text="C",bg=color_boton,width=ancho_boton,height=alto_boton,command=clear).place(x=107,y=420)
 BotonExp=Button(ventana,text="EXP",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("EXP")).place(x=197,y=420)
 BotonResul=Button(ventana,text="=",bg=color_boton,width=ancho_boton,height=alto_boton,command=operation).place(x=287,y=420)
@@ -69,10 +69,11 @@ BotonSin=Button(ventana,text="sin()",bg=color_boton,width=ancho_boton,height=alt
 BotonCos=Button(ventana,text="cos()",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("cos")).place(x=107,y=540)
 BotonCos=Button(ventana,text="tan()",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("tan")).place(x=197,y=540)
 #LogN
-BotonTan=Button(ventana,text="Ln()",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("logn")).place(x=287,y=540)
+BotonTan=Button(ventana,text="Ln()",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("ln")).place(x=287,y=540)
 #Factorial
 BotonTan=Button(ventana,text="!",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("!")).place(x=17,y=600)
 BotonTan=Button(ventana,text="e",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("e")).place(x=107,y=600)
+BotonUp=Button(ventana,text="^",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("^")).place(x=197,y=600)
 
 
 
