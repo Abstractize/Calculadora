@@ -216,23 +216,35 @@ def run(p):
     
     if type(p) == tuple:
         if p[0] == '+':
-            if type(p[1]) == tuple:
+            if type(p[1]) == tuple and type(p[2]) == tuple:
+                return run(p[1]) + run(p[2])
+            elif type(p[1]) == tuple:
                 return p[2] + run(p[1])
+            
             else:
                 return p[1] + p[2]
         elif p[0] == '-':
-            if type(p[1]) == tuple:
+            if type(p[1]) == tuple and type(p[2]) == tuple:
+                return run(p[1]) - run(p[2])
+            elif type(p[1]) == tuple:
                 return p[2] - run(p[1])
+            
             else:
                 return p[1] - p[2]
         elif p[0] == '*':
-            if type(p[1]) == tuple:
-                return run(p[1]) * p[2]  
+            if type(p[1]) == tuple and type(p[2]) == tuple:
+                return run(p[1]) * run(p[2])
+            elif type(p[1]) == tuple:
+                return run(p[1]) * p[2]
+            
             else:
                 return p[1] * p[2]
         elif p[0] == '/':
-            if type(p[1]) == tuple:
+            if type(p[1]) == tuple and type(p[2]) == tuple:
+                return run(p[1]) / run(p[2])
+            elif type(p[1]) == tuple:
                 return run(p[1]) / p[2]
+            
             else:
                 return p[1] / p[2]
         elif p[0] == '!':
