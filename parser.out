@@ -5,6 +5,7 @@ Unused terminals:
     EULER
     PI
     EQUALS
+    EULER
     NAME
 
 Grammar
@@ -234,6 +235,7 @@ state 10
     UP              shift and go to state 21
     FACTORIAL       shift and go to state 20
 
+    expression                     shift and go to state 26
 
 state 11
 
@@ -342,7 +344,7 @@ state 14
     INT             shift and go to state 7
     FLOAT           shift and go to state 5
 
-    expression                     shift and go to state 28
+    expression                     shift and go to state 30
 
 state 15
 
@@ -376,7 +378,7 @@ state 15
     INT             shift and go to state 7
     FLOAT           shift and go to state 5
 
-    expression                     shift and go to state 29
+    expression                     shift and go to state 31
 
 state 16
 
@@ -551,7 +553,7 @@ state 21
     INT             shift and go to state 7
     FLOAT           shift and go to state 5
 
-    expression                     shift and go to state 34
+    expression                     shift and go to state 36
 
 state 22
 
@@ -823,6 +825,14 @@ state 31
     UP              shift and go to state 21
     FACTORIAL       shift and go to state 20
 
+  ! MULTIPLY        [ reduce using rule 8 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 8 (expression -> expression MINUS expression .) ]
+  ! EXP             [ shift and go to state 13 ]
+  ! PLUS            [ shift and go to state 14 ]
+  ! MINUS           [ shift and go to state 15 ]
+  ! UP              [ shift and go to state 18 ]
+  ! FACTORIAL       [ shift and go to state 19 ]
+
 
 state 32
 
@@ -845,6 +855,14 @@ state 32
     MINUS           shift and go to state 25
     UP              shift and go to state 21
     FACTORIAL       shift and go to state 20
+
+  ! EXP             [ shift and go to state 13 ]
+  ! MULTIPLY        [ shift and go to state 16 ]
+  ! DIVIDE          [ shift and go to state 17 ]
+  ! PLUS            [ shift and go to state 14 ]
+  ! MINUS           [ shift and go to state 15 ]
+  ! UP              [ shift and go to state 18 ]
+  ! FACTORIAL       [ shift and go to state 19 ]
 
 
 state 33
@@ -1176,6 +1194,14 @@ state 42
     $end            reduce using rule 14 (expression -> COS OPEN expression CLOSE .)
     OPEN            reduce using rule 14 (expression -> COS OPEN expression CLOSE .)
 
+  ! MULTIPLY        [ reduce using rule 3 (expression -> expression EXP PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 3 (expression -> expression EXP PLUS expression .) ]
+  ! EXP             [ shift and go to state 13 ]
+  ! PLUS            [ shift and go to state 14 ]
+  ! MINUS           [ shift and go to state 15 ]
+  ! UP              [ shift and go to state 18 ]
+  ! FACTORIAL       [ shift and go to state 19 ]
+
 
 state 43
 
@@ -1191,6 +1217,14 @@ state 43
     FACTORIAL       reduce using rule 17 (expression -> SQUARE OPEN expression CLOSE .)
     $end            reduce using rule 17 (expression -> SQUARE OPEN expression CLOSE .)
     OPEN            reduce using rule 17 (expression -> SQUARE OPEN expression CLOSE .)
+
+  ! MULTIPLY        [ reduce using rule 4 (expression -> expression EXP MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 4 (expression -> expression EXP MINUS expression .) ]
+  ! EXP             [ shift and go to state 13 ]
+  ! PLUS            [ shift and go to state 14 ]
+  ! MINUS           [ shift and go to state 15 ]
+  ! UP              [ shift and go to state 18 ]
+  ! FACTORIAL       [ shift and go to state 19 ]
 
 
 state 44
