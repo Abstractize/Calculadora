@@ -1,6 +1,7 @@
 #Agarrado de: https://programacionpython80889555.wordpress.com/2018/06/03/creando-una-calculadora-con-interfaz-grafica-con-python-y-tkinter-1a-parte/
 from tkinter import *
 from math import *
+from Calculadora import *
 ventana=Tk()
 ventana.title("CALCULADORA")
 ventana.geometry("392x600")
@@ -23,7 +24,8 @@ def operation():
     global operador
     try:
         #Cambio en el código para usar las operaciones del compilador
-        opera=str(eval(operador))#SIRVE PARA REALIZAR LA OPERACIÓN PREVIAMENTE VISUALIZADA EN PANTALLA
+        opera=str(calculate(operador))
+        #opera=str(eval(operador))#SIRVE PARA REALIZAR LA OPERACIÓN PREVIAMENTE VISUALIZADA EN PANTALLA
         
     except:
         

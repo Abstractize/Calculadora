@@ -1,0 +1,181 @@
+import ply.lex as lex
+import ply.yacc as yacc
+import sys
+import math
+tokens = [
+    'INT',
+    'FLOAT',
+    'NAME',
+    'PLUS',
+    'MINUS',
+    'DIVIDE',
+    'MULTIPLY',
+    'EQUALS',
+    'UP',
+    'OPEN',
+    'CLOSE',
+    'FACTORIAL',
+    'SIN',
+    'COS',
+    'TAN',
+    'LOG',
+    'NATURAL',
+    'EXP',
+    'SQUARE',
+    'EULER',
+    'PI'
+    ]
+#Análisis léxico de simbolos
+t_PLUS = r'\+'
+t_MINUS = r'\-'
+t_DIVIDE = r'\/'
+t_MULTIPLY = r'\*'
+t_EQUALS = r'\='
+t_UP = r'\^'
+t_OPEN = r'\('
+t_CLOSE = r'\)'
+t_FACTORIAL = r'\!'
+t_ignore = r' '
+
+#Análisis léxico con palabras
+def t_EXP(t):
+    r'[0-9]+e[\+|\-]\d+'
+    t.value = float(t.value)
+    return t
+
+def t_EULER(t):
+    r'e'
+    t.value = math.e
+    return t
+def t_PI(t):
+    r'π'
+    t.value = math.pi
+    return t
+def t_SIN(t):
+    r'sin'
+    t.type = 'SIN'
+    return t
+
+def t_COS(t):
+    r'cos'
+    t.type = 'COS'
+    return t
+
+def t_LOG(t):
+    r'log'
+    t.type = 'LOG'
+    return t
+
+def t_NATURAL(t):
+    r'ln'
+    t.type = 'NATURAL'
+    return t
+def t_SQUARE(t):
+    r'√'
+    t.type = 'SQUARE'
+    return t
+
+def t_TAN(t):
+    r'tan'
+    t.type = 'TAN'
+    return t
+
+def t_FLOAT(t):
+    r'\d+\.\d+'
+    t.value = float(t.value)
+    return t
+
+def t_INT(t):
+    r'\d+'
+    t.value = int(t.value)
+    return t
+
+def t_NAME(t):
+    r'[a-zA-Z_][a-zA-Z_0-9]*'
+    t.type = 'NAME'
+    return t
+
+def t_error(t):
+    print("Caracteres invalidos")
+    t.lexer.skip(1)
+
+
+lexer = lex.lex()
+#Acá se añade la entrada a descomponer
+lexer.input("")
+
+while True:
+    tok = lexer.token()
+    if not tok:
+        break
+    print(tok)
+    
+
+#------------------------------------------------------------------------------#
+    
+#Parser
+def p_calc(p):
+    '''
+    calc : expression
+         | empty
+    '''
+    print(p[1])
+
+def p_expression_s_r_m_d(p):
+    '''
+    expression : expression MULTIPLY expression
+               | expression DIVIDE expression 
+               | expression PLUS expression
+               | expression MINUS expression 
+               | expression EXP expression
+    '''
+    p[0] = (p[2], p[1], p[3])
+
+def p_expresion_fact_pi(p):
+    '''
+    expression : expression FACTORIAL
+               | expresssion PI
+    '''
+    p[0] = (p[1], p[2])
+
+
+def p_expression_trigonometria_log_exp_sqrt(p):
+    '''
+    expression : SIN OPEN expression CLOSE
+               | COS OPEN expresion CLOSE
+               | TAN OPEN expression CLOSE
+               | LOG OPEN expresion CLOSE
+               | SQUARE OPEN expression CLOSE
+               | EULER OPEN expression CLOSE
+               
+    '''
+    p[0] = (p[1], p[3])
+    
+def p_expression_log_natural(p):
+    '''
+    expression : LOG NATURAL OPEN expression CLOSE
+    '''
+    p[0] = (p[1],p[2],p[4])
+
+
+
+def p_empty(p):
+    
+    '''
+    empty : 
+    '''
+    p[0] = None
+"""
+parser = yacc.yacc()
+
+while True:
+    try:
+        s = input()
+    except EOFError:
+        break
+    parser.parse(s)
+"""
+#Gabo tocó aquí
+def calculate(s):
+    parser = yacc.yacc()
+    parser.parse(s)
